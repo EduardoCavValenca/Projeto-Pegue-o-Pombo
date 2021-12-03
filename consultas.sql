@@ -143,8 +143,24 @@ SELECT * FROM AMOSTRA JOIN Pesquisador ON Amostra.Pesquisador = Pesquisador.CPF;
 DELETE  from COCO_POMBO Where COCO_POMBO.ID = 123;
 
 
+--Para cada Pesquisador o Numero de Notificacoes Recebidas, Notificacoes Atendidas e Amostras Criadas
+SELECT  P.Nome AS Pesquisador, N.Pesquisador as CPF, COUNT (N.Coco) as N_Notif_Recebidas, COUNT (C.DataHoraRetirado) as N_Notif_Atendidas,
+        COUNT (A.Coco) as N_Amostras_Coletadas
+FROM Notificacao_Pesquisador N 
+    JOIN Coco_Pombo C ON N.Coco = c.ID
+    JOIN Pesquisador P ON N.Pesquisador = P.CPF
+    JOIN Amostra A ON A.Coco = C.ID
+GROUP BY N.Pesquisador
+ORDER BY P.Nome;
 
-
+--Para cada Informante, Numero de Cocos Informados e Quantidade ja retirada
+SELECT I.Nome AS Informante, COUNT (IC.Coco) AS Cocos_Reportadors, COUNT (C.DataHoraRetirados) AS Cocos_Retirados
+FROM INFORMA_COCO IC
+    JOIN CELULAR Cel ON IC.Celular = Cel.Numero
+    JOIN Informante I ON I.CPF = Cel.Informante
+    JOIN Coco_Pombo C ON C.ID = I.Coco
+GROUP BY I.Nome
+ORDER By I.CPF, C.Numero;
 
 
 
