@@ -530,5 +530,5 @@ INSERT INTO Dados_Densidade (Sensor, DataHora, Densidade)
     VALUES ('0918273645', TO_DATE('2021/12/03 11:43:11', 'YYYY/MM/DD HH24:MI:SS'), 0.99);   --Centro
 
 INSERT INTO Dados_Densidade (Sensor, DataHora, Densidade)
-    VALUES ('0918273645', TO_DATE('2021/12/03 11:43:12', 'YYYY/MM/DD HH24:MI:SS'), 0.99);   --Centro
+    VALUES ('0918273645', TO_DATE('2021/12/03 11:43:12', 'YYYY/MM/DD HH24:MI:SS'), 0.33);   --Centro
     

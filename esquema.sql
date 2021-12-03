@@ -492,6 +492,16 @@ CREATE OR REPLACE TYPE Historico_Matador_Linha AS OBJECT(
 CREATE OR REPLACE TYPE Historico_Matador_Table AS TABLE OF Historico_Matador_Linha;
 
 
+/
+CREATE OR REPLACE TYPE Densidade_Regiao_Linha AS OBJECT(
+    Regiao VARCHAR2(40),
+    Densidade NUMBER
+);
+
+/
+CREATE OR REPLACE TYPE Densidade_Regiao_Table AS TABLE OF Densidade_Regiao_Linha;
+
+
 -- **************** FUNCTIONS **********************
 /
 CREATE OR REPLACE FUNCTION Historico_Zelador (CPF_Pesquisa IN VARCHAR2)
@@ -570,4 +580,24 @@ BEGIN
     ORDER BY NM.DataHora DESC;
 
 RETURN Historico;
+END;
+
+
+/
+CREATE OR REPLACE FUNCTION Densidade_Regiao (Media IN NUMBER)
+RETURN Densidade_Regiao_Table
+IS
+    Media_Table Densidade_Regiao_Table := Densidade_Regiao_Table();
+
+BEGIN
+
+    SELECT Densidade_Regiao_Linha(SPD.Regiao, AVG(DD.Densidade))
+    BULK COLLECT INTO Media_Table
+    FROM Sensor_Densidade_Pombo SPD
+    join Dados_Densidade DD on SPD.NroSerie = DD.Sensor
+    GROUP BY SPD.Regiao HAVING AVG(DD.Densidade) > Media
+    ORDER BY AVG(DD.Densidade) DESC;
+
+
+RETURN Media_Table;
 END;
