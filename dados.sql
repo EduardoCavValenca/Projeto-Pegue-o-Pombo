@@ -232,6 +232,9 @@ INSERT INTO Tipo_Pessoa (CPF, Tipo)
     VALUES ('30368706010','informante');    -- Bruno Mola  
 
 INSERT INTO Tipo_Pessoa (CPF, Tipo)
+    VALUES ('84732064927','informante');       -- Androgod
+
+INSERT INTO Tipo_Pessoa (CPF, Tipo)
     VALUES ('84732064927','matador');       -- Androgod
 
 INSERT INTO Tipo_Pessoa (CPF, Tipo)
@@ -281,6 +284,10 @@ INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
 INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
     VALUES ('12345678901', 'Ze faiz tudo', TO_DATE('1982/11/04', 'YYYY/MM/DD'),
             '13946729', 'Vila Olimpia', 'Alameda dos Campeoes', 500);
+
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+    VALUES ('84732064927', 'Androgod', TO_DATE('2000/04/27', 'YYYY/MM/DD'),
+            '93494265', 'Espartano', 'Rua dos Gamers', 25);
 
 
 
