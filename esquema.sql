@@ -50,7 +50,6 @@ CREATE TABLE Central_Pombos (
     CNPJ VARCHAR2(14) NOT NULL,
     Regiao VARCHAR2(40) NOT NULL,   --FK: Nome da Regiao
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     
@@ -103,7 +102,6 @@ CREATE TABLE Informante (
     Nome VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     
@@ -145,7 +143,6 @@ CREATE TABLE Zelador (
     Nome VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     CarteiraTrab VARCHAR2(8),   --Atributo Genérrico que identifica cada Zelador
@@ -178,7 +175,6 @@ CREATE TABLE Matador_Pombos
     Nome    VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP     VARCHAR2(8),
-    Bairro  VARCHAR2(40),
     Rua     VARCHAR2(40),
     Numero  NUMBER(5),
     NroLicenca VARCHAR2(10) NOT NULL,   --Atributo generico que identifica cada matador
@@ -212,7 +208,6 @@ CREATE TABLE Pesquisador(
     Nome VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     Formacao VARCHAR2(20) NOT NULL,
@@ -242,7 +237,6 @@ CREATE TABLE Notificacao_Pesquisador (
 CREATE TABLE Laboratorio (
     CNPJ    VARCHAR2(14) NOT NULL,
     CEP     VARCHAR2(8),
-    Bairro  VARCHAR2(40),
     Rua     VARCHAR2(40),
     Numero  NUMBER(5),
     
@@ -498,6 +492,16 @@ CREATE OR REPLACE TYPE Historico_Matador_Linha AS OBJECT(
 CREATE OR REPLACE TYPE Historico_Matador_Table AS TABLE OF Historico_Matador_Linha;
 
 
+/
+CREATE OR REPLACE TYPE Densidade_Regiao_Linha AS OBJECT(
+    Regiao VARCHAR2(40),
+    Densidade NUMBER
+);
+
+/
+CREATE OR REPLACE TYPE Densidade_Regiao_Table AS TABLE OF Densidade_Regiao_Linha;
+
+
 -- **************** FUNCTIONS **********************
 /
 CREATE OR REPLACE FUNCTION Historico_Zelador (CPF_Pesquisa IN VARCHAR2)
@@ -576,4 +580,24 @@ BEGIN
     ORDER BY NM.DataHora DESC;
 
 RETURN Historico;
+END;
+
+
+/
+CREATE OR REPLACE FUNCTION Densidade_Regiao (Media IN NUMBER)
+RETURN Densidade_Regiao_Table
+IS
+    Media_Table Densidade_Regiao_Table := Densidade_Regiao_Table();
+
+BEGIN
+
+    SELECT Densidade_Regiao_Linha(SPD.Regiao, AVG(DD.Densidade))
+    BULK COLLECT INTO Media_Table
+    FROM Sensor_Densidade_Pombo SPD
+    join Dados_Densidade DD on SPD.NroSerie = DD.Sensor
+    GROUP BY SPD.Regiao HAVING AVG(DD.Densidade) > Media
+    ORDER BY AVG(DD.Densidade) DESC;
+
+
+RETURN Media_Table;
 END;
