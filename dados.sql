@@ -175,9 +175,20 @@ INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP
     VALUES (490, 37.800, 14.763, TO_DATE('2020/11/10 14:43:20', 'YYYY/MM/DD HH24:MI:SS'),                   --Relatorio Pronto
             TO_DATE('2020/11/19 10:22:20', 'YYYY/MM/DD HH24:MI:SS'), '23450965', 'Novo Eldorado', 'Avenida Roedores', 65);
 
+INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
+    VALUES (935, 23.8230, 62.13643, TO_DATE('2020/07/07 17:34:34', 'YYYY/MM/DD HH24:MI:SS'),                   --Amostra sem Relatorio
+            TO_DATE('2020/07/10 15:22:20', 'YYYY/MM/DD HH24:MI:SS'), '93740153', 'Parque Verde', 'Rua Esverdejante', 845);
+
+INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
+    VALUES (57, 65.834630, 123.134543, TO_DATE('2021/03/03 13:33:31', 'YYYY/MM/DD HH24:MI:SS'),                   --Relatorio Nao Finalizado
+            TO_DATE('2021/03/20 15:22:20', 'YYYY/MM/DD HH24:MI:SS'), '53709153', 'Cosmos', 'Rua Via Lactea', 42);
+
+INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Anakin
+    VALUES (86, 58.23445, 57.2034558, TO_DATE('2021/04/25 13:20:51', 'YYYY/MM/DD HH24:MI:SS'),            --Nao Retirado
+            NULL, '93450275', 'Tabuleiro do Martins', 'Rua Fittipaldi', 05); 
+
 
 -- ~~~~ Inserção na tabela Tipo Pessoa ~~~~
-
 INSERT INTO Tipo_Pessoa (CPF, Tipo)
     VALUES ('12345678901','zelador');       -- Ze faiz tudo
 
@@ -452,6 +463,16 @@ INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)      
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Ze faiz Tudo
     VALUES ('12345678901', '90817263540123', 490, TO_DATE('2020/11/18 15:30:20', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Finalizado
 
+INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Ze faiz Tudo
+    VALUES ('12345678901', '09182736450123', 935, TO_DATE('2020/07/08 12:12:12', 'YYYY/MM/DD HH24:MI:SS'));     --Sem Relatorio
+
+INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Ze faiz Tudo
+    VALUES ('12345678901', '09182736450123', 57, TO_DATE('2021/03/13 11:11:11', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio nao Finalizado
+
+INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Anakin
+    VALUES ('81282720040', '90817263540123', 86, TO_DATE('2021/04/26 13:20:51', 'YYYY/MM/DD HH24:MI:SS'));     --Nao Retirado
+
+
 -- ~~~~ Inserção na tabela Laboratorio ~~~~
 INSERT INTO Laboratorio (CNPJ, CEP, Bairro, Rua, Numero)
     VALUES ('12345678901234', '12345678', 'Laranjeiras', 'Alameda Arantes',115);
@@ -478,19 +499,28 @@ INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laborat
 
 INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
     VALUES (490, '12345678901', TO_DATE('2020/11/19 10:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Nova Pombopolis
-            15.987, 'Esverdeado', '12345671234567');
+            13.460, 'Esverdeado', '12345671234567');
 
+INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
+    VALUES (935, '12345678901', TO_DATE('2020/07/10 15:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Laranjeira
+            4.600, 'Esbranquicado', '12345678901234');
+
+INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
+    VALUES (57, '12345678901', TO_DATE('2021/03/20 15:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Laranjeira
+            4.600, 'Esbranquicado', '12345678901234');
 
 -- ~~~~ Inserção na tabela Relatorio ~~~~
-INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)
+INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Anakin
     VALUES  (123, NULL, 0);
 
-INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)
+INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Joao Coluna
     VALUES  (666, TO_DATE('2021/12/31 23:59:59', 'YYYY/MM/DD HH24:MI:SS'), 1);
 
-INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)
-    VALUES  (490, TO_DATE('2021/02/15 23:59:59', 'YYYY/MM/DD HH24:MI:SS'), 0);
-
+INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Ze faiz Tudo
+    VALUES  (490, TO_DATE('2021/02/15 23:59:59', 'YYYY/MM/DD HH24:MI:SS'), 0);  
+    
+INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Ze faiz Tudo
+    VALUES  (57, NULL, 0);
 
 
 -- ~~~~ Inserção na tabela Sensor Densidade de Pombo ~~~~
