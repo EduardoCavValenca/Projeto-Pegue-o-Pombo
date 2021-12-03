@@ -106,20 +106,20 @@ INSERT INTO Bairro (Nome, Regiao)
 
 
 -- ~~~~ Inserção na tabela Central Pombos ~~~~
-INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Bairro, Rua, Numero)
-    VALUES ('01234567891011', 'Zona Norte', '86058142', 'Esperanca' , 'Rua Davis Cup' , 75);        --Central da Regiao: Zona Norte
+INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Rua, Numero)
+    VALUES ('01234567891011', 'Zona Norte', '86058142', 'Rua Davis Cup' , 75);        --Central da Regiao: Zona Norte
     
-INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Bairro, Rua, Numero)
-    VALUES ('11019876543210', 'Zona Sul', '01234567', 'Nova Alianca' , 'Rua Trevis Scott', 103);    --Central da Regiao: Zonal Sul
+INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Rua, Numero)
+    VALUES ('11019876543210', 'Zona Sul', '01234567', 'Rua Trevis Scott', 103);      --Central da Regiao: Zonal Sul
     
-INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Bairro, Rua, Numero)
-    VALUES ('09182736450123', 'Zona Leste', '76543210', 'Espartano' , 'Rua dos Gamers', 25);        --Central da Regiao: Zona Leste
+INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Rua, Numero)
+    VALUES ('09182736450123', 'Zona Leste', '76543210', 'Rua dos Gamers', 25);        --Central da Regiao: Zona Leste
 
-INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Bairro, Rua, Numero)
-    VALUES ('90817263540123', 'Zona Oeste', '93494265', 'Flores Altas', 'Rua Palestra Italia', 518);--Central da Regiao: Zona Oeste
+INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Rua, Numero)
+    VALUES ('90817263540123', 'Zona Oeste', '93494265', 'Rua Palestra Italia', 518);   --Central da Regiao: Zona Oeste
 
-INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Bairro, Rua, Numero)
-    VALUES ('67890123459999', 'Centro', '53069463', 'Bangu', 'Rua Brasilia', 644);                  ----Central da Regiao: Centro
+INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Rua, Numero)
+    VALUES ('67890123459999', 'Centro', '53069463', 'Rua Brasilia', 644);              --Central da Regiao: Centro
 
 
 -- ~~~~ Inserção na tabela Coco_Pombo ~~~~
@@ -247,29 +247,29 @@ INSERT INTO Tipo_Pessoa (CPF, Tipo)
 
 
 -- ~~~~ Inserção na tabela Informante ~~~~
-INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('03102496008','Minionzera', TO_DATE('2001/06/25', 'YYYY/MM/DD'), 
-            '58025480', 'Flores Altas', 'Marques de Sardinha', 69);
+            '58025480', 'Marques de Sardinha', 69);
     
-INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('19688269042','Mussattex', TO_DATE('2000/04/24', 'YYYY/MM/DD'), 
-            '08330095', 'Nova Alianca', 'Prado de Morais', 77);
+            '08330095', 'Prado de Morais', 77);
     
-INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('29358867043','Chezon', TO_DATE('1998/03/14', 'YYYY/MM/DD'), 
-            '54792035', 'Central', 'General Osorio', 35);
+            '54792035', 'General Osorio', 35);
     
-INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('81771167033','Marcus Segundo', TO_DATE('1987/02/16', 'YYYY/MM/DD'), 
-            '49089291', 'Soledade', 'Francisco Marcelino Dias', 08);
+            '49089291', 'Francisco Marcelino Dias', 08);
     
-INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('30368706010','Bruno Mola', TO_DATE('2001/02/20', 'YYYY/MM/DD'), 
-            '91140210', 'Diamante', 'Sarandi', 333);
+            '91140210', 'Sarandi', 333);
 
-INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('12345678901', 'Ze faiz tudo', TO_DATE('1982/11/04', 'YYYY/MM/DD'),
-            '13946729', 'Vila Olimpia', 'Alameda dos Campeoes', 500);
+            '13946729', 'Alameda dos Campeoes', 500);
 
 
 
@@ -326,25 +326,25 @@ INSERT INTO Informa_Coco (Celular, Coco, DataHora)
 
 
 -- ~~~~ Inserção na tabela Zelador ~~~~
-INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, CarteiraTrab)
+INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)
     VALUES ('12345678901', 'Ze faiz tudo', TO_DATE('1980/06/06', 'YYYY/MM/DD'), 
-            '13946729', 'Vila Olimpia', 'Alameda dos Campeoes', 500, '10591478');
+            '13946729', 'Alameda dos Campeoes', 500, '10591478');
             
-INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, CarteiraTrab)
+INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)
     VALUES ('10365074901', 'Robertinho do Vassourao', TO_DATE('1955/02/20', 'YYYY/MM/DD'), 
-            '40490204', 'São João do Cabrito', 'Rua da Paz de São João', 111, '83472643');
+            '40490204', 'Rua da Paz de São João', 111, '83472643');
 
-INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, CarteiraTrab)
+INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)
     VALUES ('93760124061', 'Dona Creuza', TO_DATE('1968/09/17', 'YYYY/MM/DD'), 
-            '29150518', 'Oriente', 'Rua Jerusalem', 898, '16734985');
+            '29150518', 'Rua Jerusalem', 898, '16734985');
 
-INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, CarteiraTrab)
+INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)
     VALUES ('94520593443', 'Zelador do Clip do Nirvana', TO_DATE('1978/03/10', 'YYYY/MM/DD'), 
-            '88066577', 'Armação do Pântano do Sul', 'Servidão Quati', 45, '26841379');
+            '88066577', 'Servidão Quati', 45, '26841379');
 
-INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, CarteiraTrab)   --Nao possui Notificacao
+INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)   --Nao possui Notificacao
     VALUES ('05395729513', 'Jerry', TO_DATE('1999/05/13', 'YYYY/MM/DD'), 
-            '56473829', 'São Jorge de Agostina', 'Avenida Higeanípolis', 313, '04171738');
+            '56473829', 'Avenida Higeanípolis', 313, '04171738');
 
 
     
@@ -371,25 +371,25 @@ INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)            
 
 
 -- ~~~~ Inserção na tabela Matador de Pombo ~~~~
-INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Bairro, Rua, Numero, NroLicenca, ModeloArma) --Nao tem Notificacao
+INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Rua, Numero, NroLicenca, ModeloArma) --Nao tem Notificacao
     VALUES ('84732064927', '01234567891011', 'Androgod', TO_DATE('2000/04/27', 'YYYY/MM/DD'),
-            '93494265', 'Espartano', 'Rua dos Gamers', 25, 'a1b2c3d4e5', 'Desert Eagle');
+            '93494265', 'Rua dos Gamers', 25, 'a1b2c3d4e5', 'Desert Eagle');
 
-INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Bairro, Rua, Numero, NroLicenca, ModeloArma)
+INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Rua, Numero, NroLicenca, ModeloArma)
     VALUES ('66666666666', '11019876543210', 'Joao de Santo Cristo', TO_DATE('1987/08/15', 'YYYY/MM/DD'),
-            '53069463', 'Planalto Central', 'Rua Brasilia', 2514, 'WN22666666', 'Winchester 22');
+            '53069463', 'Rua Brasilia', 2514, 'WN22666666', 'Winchester 22');
     
-INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Bairro, Rua, Numero, NroLicenca, ModeloArma)
+INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Rua, Numero, NroLicenca, ModeloArma)
     VALUES ('45609874381', '11019876543210', 'Evair o Matador', TO_DATE('1965/01/21', 'YYYY/MM/DD'),
-            '40729528', 'Palmeiras', 'Rua Palestra Italia', 9, 'Palm3Ir4S9', 'Chute Potente');
+            '40729528', 'Rua Palestra Italia', 9, 'Palm3Ir4S9', 'Chute Potente');
 
-INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Bairro, Rua, Numero, NroLicenca, ModeloArma) --nao tem notificacao
+INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Rua, Numero, NroLicenca, ModeloArma) --nao tem notificacao
     VALUES ('92309874381', '90817263540123', 'Arthur Morgan', TO_DATE('1863/06/10', 'YYYY/MM/DD'),
-            '02594386', 'Lemoyne', 'Rua Saint Denis', 123, 'AmDutchV4N', 'Pistola Scotchfield');
+            '02594386', 'Rua Saint Denis', 123, 'AmDutchV4N', 'Pistola Scotchfield');
 
-INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Bairro, Rua, Numero, NroLicenca, ModeloArma)
+INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Rua, Numero, NroLicenca, ModeloArma)
     VALUES ('12345678901', '67890123459999', 'Ze faiz tudo', TO_DATE('1982/11/04', 'YYYY/MM/DD'),
-            '13946729', 'Vila Olimpia', 'Alameda dos Campeoes', 500, 'Ze123FT321', 'Arco e Flecha');
+            '13946729', 'Alameda dos Campeoes', 500, 'Ze123FT321', 'Arco e Flecha');
 
 
 
@@ -410,29 +410,29 @@ INSERT INTO Notificacao_Matador (Matador, DataHora)
 
 
 -- ~~~~ Inserção na tabela Pesquisador ~~~~
-INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, Formacao)
+INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
     VALUES ('81282720040', 'Anakin', TO_DATE('2000/04/27', 'YYYY/MM/DD'), 
-            '59133265', 'Pajuçara', 'Rua Francisco Morato', 51, 'Mestrado');
+            '59133265', 'Rua Francisco Morato', 51, 'Mestrado');
     
-INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, Formacao)
+INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
     VALUES ('15454291030', 'Joao Coluna', TO_DATE('1999/05/31', 'YYYY/MM/DD'), 
-            '21850070', 'Bangu', 'Rua da Paz', 22, 'Doutorado'); 
+            '21850070', 'Rua da Paz', 22, 'Doutorado'); 
     
-INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, Formacao)
+INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
     VALUES ('41716935008', 'Alessandro Barbaro', TO_DATE('2001/05/14', 'YYYY/MM/DD'), 
-            '49043687', 'Santa Maria', 'Rua Portugal', 10, 'Pos-Doutorado'); 
+            '49043687', 'Rua Portugal', 10, 'Pos-Doutorado'); 
     
-INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, Formacao)
+INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
     VALUES ('10970670095', 'Pedro Serrote', TO_DATE('2000/06/05', 'YYYY/MM/DD'), 
-            '78045020', 'Santa Helena', 'Alameda Polivalente', 539, 'Bacharelado');
+            '78045020', 'Alameda Polivalente', 539, 'Bacharelado');
     
-INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, Formacao)   --Sem Notificacao !!!!!!!
+INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)   --Sem Notificacao !!!!!!!
     VALUES ('04486497058', 'Yudi', TO_DATE('2000/06/23', 'YYYY/MM/DD'), 
-            '32341450', 'Novo Eldorado', 'Rua Jacuma', 777, 'Bacharelado');
+            '32341450', 'Rua Jacuma', 777, 'Bacharelado');
 
-INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero, Formacao)
+INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
     VALUES ('12345678901', 'Ze faiz tudo',TO_DATE('1982/11/04', 'YYYY/MM/DD'),
-            '13946729','Vila Olimpia','Alameda dos Campeoes', 500, 'Bacharelado');
+            '13946729','Alameda dos Campeoes', 500, 'Bacharelado');
 
 
 
@@ -453,14 +453,14 @@ INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)      
     VALUES ('12345678901', '90817263540123', 490, TO_DATE('2020/11/18 15:30:20', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Finalizado
 
 -- ~~~~ Inserção na tabela Laboratorio ~~~~
-INSERT INTO Laboratorio (CNPJ, CEP, Bairro, Rua, Numero)
-    VALUES ('12345678901234', '12345678', 'Laranjeiras', 'Alameda Arantes',115);
+INSERT INTO Laboratorio (CNPJ, CEP, Rua, Numero)
+    VALUES ('12345678901234', '12345678', 'Alameda Arantes',115);
 
-INSERT INTO Laboratorio (CNPJ, CEP, Bairro, Rua, Numero)
-    VALUES ('43210987654321', '87654321', 'Palhano', 'Rua Almirante Tamandare', 555);
+INSERT INTO Laboratorio (CNPJ, CEP, Rua, Numero)
+    VALUES ('43210987654321', '87654321', 'Rua Almirante Tamandare', 555);
 
-INSERT INTO Laboratorio (CNPJ, CEP, Bairro, Rua, Numero)
-    VALUES ('12345671234567', '12341234', 'Nova Pombopolis', 'Rua do Pombo', 478);
+INSERT INTO Laboratorio (CNPJ, CEP, Rua, Numero)
+    VALUES ('12345671234567', '12341234', 'Rua do Pombo', 478);
 
 
 -- ~~~~ Inserção na tabela Amostra ~~~~

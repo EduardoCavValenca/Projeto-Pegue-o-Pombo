@@ -50,7 +50,6 @@ CREATE TABLE Central_Pombos (
     CNPJ VARCHAR2(14) NOT NULL,
     Regiao VARCHAR2(40) NOT NULL,   --FK: Nome da Regiao
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     
@@ -103,7 +102,6 @@ CREATE TABLE Informante (
     Nome VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     
@@ -145,7 +143,6 @@ CREATE TABLE Zelador (
     Nome VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     CarteiraTrab VARCHAR2(8),   --Atributo Genérrico que identifica cada Zelador
@@ -178,7 +175,6 @@ CREATE TABLE Matador_Pombos
     Nome    VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP     VARCHAR2(8),
-    Bairro  VARCHAR2(40),
     Rua     VARCHAR2(40),
     Numero  NUMBER(5),
     NroLicenca VARCHAR2(10) NOT NULL,   --Atributo generico que identifica cada matador
@@ -212,7 +208,6 @@ CREATE TABLE Pesquisador(
     Nome VARCHAR2(40) NOT NULL,
     DataNasc DATE,
     CEP VARCHAR2(8),
-    Bairro VARCHAR2(40),
     Rua VARCHAR2(40),
     Numero NUMBER(5),
     Formacao VARCHAR2(20) NOT NULL,
@@ -242,7 +237,6 @@ CREATE TABLE Notificacao_Pesquisador (
 CREATE TABLE Laboratorio (
     CNPJ    VARCHAR2(14) NOT NULL,
     CEP     VARCHAR2(8),
-    Bairro  VARCHAR2(40),
     Rua     VARCHAR2(40),
     Numero  NUMBER(5),
     
