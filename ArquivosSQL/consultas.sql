@@ -79,9 +79,9 @@ ORDER BY Z.Nome,NF.DataHora;
 --          Numero de Relatorios Finalizados
 
 SELECT  P.Nome AS Pesquisador, P.CPF, 
-        COUNT (N.Coco) as N_Notif_Recebidas, 
-        COUNT (C.DataHoraRetirado) as N_Notif_Atendidas,
-        COUNT (A.Coco) as N_Amostras_Coletadas, 
+        COUNT (N.Coco) AS N_Notif_Recebidas, 
+        COUNT (C.DataHoraRetirado) AS N_Notif_Atendidas,
+        COUNT (A.Coco) AS N_Amostras_Coletadas, 
         COUNT (R.Amostra) AS N_Amostras_Enviadas, 
         COUNT (R.DataHora) AS N_Relatorios_Finalizados
 FROM PESQUISADOR P
@@ -95,17 +95,17 @@ ORDER BY P.Nome;
 
 -- 9. Notificacoes Recebidas e Atendidas pelos Pesquisadores
 
-SELECT  P.Nome as Pesquisador, C.ID as ID_COCO, 
-        TO_CHAR(C.DataHora, 'DD/MM/YYYY HH24:MI:SS') as Data_Reportado, 
-        TO_CHAR(N.DataHora, 'DD/MM/YYYY HH24:MI:SS') as Data_Notificacao,  
-        TO_CHAR(C.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS')
+SELECT  P.Nome AS Pesquisador, C.ID AS ID_COCO, 
+        TO_CHAR(C.DataHora, 'DD/MM/YYYY HH24:MI:SS') AS Data_Reportado, 
+        TO_CHAR(N.DataHora, 'DD/MM/YYYY HH24:MI:SS') AS Data_Notificacao,  
+        TO_CHAR(C.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS') AS Data_Retirado
 FROM COCO_POMBO C
     JOIN NOTIFICACAO_PESQUISADOR N on N.Coco = C.ID
     RIGHT JOIN PESQUISADOR P on N.Pesquisador = P.CPF 
 ORDER BY P.Nome, C.ID;
 
 
--- 10. Das Notificacoes Antendidas, Mostra as que foram coletadas, enviadas e os relatorios
+-- 10. Das Notificacoes Antendidas, Mostra AS que foram coletadas, enviadas e os relatorios
 --      ID_COCO = NULL                                               --> Nao atendeu nenhuma notificacao
 --      ID_COCO != NULL & ID_AMOSTRA = NULL                          --> Amostra foi coletada mas nao enviada para o Laboratorio
 --      ID_COCO != NULL & ID_AMOSTRA != NULL & DATA_RELATORIO = NULL --> Amostra enviada mas Relatorio Nao Finalizado 
@@ -143,9 +143,9 @@ ORDER By I.Nome;
 --      Numero != NULL & ID_COCO = NULL                 --> Nenhuma notificacao criada com aquele celular
 --      Data_Notificacao != NULL & Data_Retirada = NULL --> Coco foi notificado mas ainda nao foi retirado
 
-SELECT  I.Nome as Informante, Cel.Numero , IC.Coco as ID_COCO, 
-        TO_CHAR(IC.DataHora, 'DD/MM/YYYY HH24:MI:SS') as Data_Notificacao,
-        TO_CHAR(C.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS') as Data_Retirado
+SELECT  I.Nome AS Informante, Cel.Numero , IC.Coco AS ID_COCO, 
+        TO_CHAR(IC.DataHora, 'DD/MM/YYYY HH24:MI:SS') AS Data_Notificacao,
+        TO_CHAR(C.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS') AS Data_Retirado
 FROM Informante I
     LEFT JOIN CELULAR Cel ON I.CPF = Cel.Informante
     LEFT JOIN Informa_Coco IC ON Cel.Numero = IC.Celular
