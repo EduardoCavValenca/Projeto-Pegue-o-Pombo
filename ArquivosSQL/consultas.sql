@@ -85,7 +85,7 @@ FROM PESQUISADOR P
     LEFT JOIN Coco_Pombo C ON N.Coco = c.ID
     LEFT JOIN Amostra A ON A.Coco = C.ID
     LEFT JOIN Relatorio R ON R.Amostra = A.Coco
-GROUP BY P.Nome, P.CPF
+GROUP BY P.CPF, P.Nome
 ORDER BY P.Nome;
 
 
