@@ -187,6 +187,9 @@ INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP
     VALUES (86, 58.23445, 57.2034558, TO_DATE('2021/04/25 13:20:51', 'YYYY/MM/DD HH24:MI:SS'),            --Nao Retirado
             NULL, '93450275', 'Tabuleiro do Martins', 'Rua Fittipaldi', 05); 
 
+INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Yudi
+    VALUES (20, 60.740, 12.170, TO_DATE('2020/03/14 06:49:14', 'YYYY/MM/DD HH24:MI:SS'), 
+            TO_DATE('2021/11/21 17:30:04', 'YYYY/MM/DD HH24:MI:SS'), '88812461', 'Novo Eldorado', 'Avenida Roedores', 04);
 
 -- ~~~~ Inserção na tabela Tipo Pessoa ~~~~
 INSERT INTO Tipo_Pessoa (CPF, Tipo)
@@ -285,9 +288,9 @@ INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('12345678901', 'Ze faiz tudo', TO_DATE('1982/11/04', 'YYYY/MM/DD'),
             '13946729', 'Alameda dos Campeoes', 500);
 
-INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Bairro, Rua, Numero)
+INSERT INTO Informante (CPF, Nome, DataNasc, CEP, Rua, Numero)
     VALUES ('84732064927', 'Androgod', TO_DATE('2000/04/27', 'YYYY/MM/DD'),
-            '93494265', 'Espartano', 'Rua dos Gamers', 25);
+            '93494265', 'Rua dos Gamers', 25);
 
 
 
@@ -479,6 +482,8 @@ INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)      
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Anakin
     VALUES ('81282720040', '90817263540123', 86, TO_DATE('2021/04/26 13:20:51', 'YYYY/MM/DD HH24:MI:SS'));     --Nao Retirado
 
+INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Yudi
+    VALUES ('04486497058', '90817263540123', 20, TO_DATE('2021/01/01 12:00:12', 'YYYY/MM/DD HH24:MI:SS')); 
 
 -- ~~~~ Inserção na tabela Laboratorio ~~~~
 INSERT INTO Laboratorio (CNPJ, CEP, Rua, Numero)

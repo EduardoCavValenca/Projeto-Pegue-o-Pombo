@@ -6,7 +6,6 @@ SELECT SPD.Regiao, AVG(DD.Densidade) AS Densidade_Media
     ORDER BY AVG(DD.Densidade) DESC;
 
 
-
 --Regioes que possuem médoa maior do que 1
 SELECT SPD.Regiao, AVG(DD.Densidade) AS Densidade_Media
     FROM Sensor_Densidade_Pombo SPD
@@ -21,6 +20,7 @@ SELECT * FROM TABLE(Densidade_Regiao(9));
 
 
 --Quantidade de Coco Contaminado por Regiao
+--NULL indica nulo
 SELECT B.Regiao, SUM(R.RiscoIminente) AS Amostras_Contaminadas
     FROM Bairro B
     join Coco_Pombo CP on B.Nome = CP.Bairro
@@ -51,6 +51,9 @@ SELECT * FROM TABLE(Historico_Zelador('12345678901'));
 SELECT * FROM TABLE(Historico_Pesquisador('81282720040'));
 SELECT * FROM TABLE(Historico_Pesquisador_Full('81282720040'));
 SELECT * FROM TABLE(Historico_Matador('66666666666'));
+
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~ Mussatto ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 --Para Cada Pesquisador:
@@ -104,8 +107,23 @@ ORDER By I.Nome;
 
 
 
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~  CHE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+-- Consulta Nome do zelador, CPF, ID do coco limpo e DataHora do coco limpo mais recente
+SELECT  Z.Nome, NZ.Zelador AS CPF, C.ID AS ID_coco_limpo, TO_CHAR(C.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY') AS DataHora_retirado
+    FROM Zelador Z 
+    JOIN Notificacao_Zelador NZ ON Z.CPF = NZ.Zelador 
+    JOIN Coco_Pombo C ON NZ.Coco = C.ID 
+    WHERE C.DataHoraRetirado IS NOT NULL AND C.DataHoraRetirado IN (SELECT MAX(DataHoraRetirado) FROM Coco_Pombo JOIN Notificacao_Zelador ON ID = Coco)
+    ORDER BY Z.Nome;
 
+-- Consulta Nome do pesquisador, CPF, ID do coco limpo e DataHora do coco limpo mais recente
+SELECT  P.Nome, NP.Pesquisador AS CPF, C.ID AS ID_coco_limpo, TO_CHAR(C.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY') AS DataHora_retirado
+    FROM Pesquisador P 
+    JOIN Notificacao_Pesquisador NP ON P.CPF = NP.Pesquisador 
+    JOIN Coco_Pombo C ON NP.Coco = C.ID 
+    WHERE C.DataHoraRetirado IS NOT NULL AND C.DataHoraRetirado IN (SELECT MAX(DataHoraRetirado) FROM Coco_Pombo JOIN Notificacao_Pesquisador ON ID = Coco)
+    ORDER BY P.Nome;
 
 
 

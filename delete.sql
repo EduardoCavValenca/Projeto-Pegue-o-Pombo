@@ -29,6 +29,8 @@ DROP TYPE Historico_Pesq_Full_Linha FORCE;
 DROP TYPE Historico_Pesq_Full_Table FORCE;
 DROP TYPE Historico_Matador_Linha FORCE;
 DROP TYPE Historico_Matador_Table FORCE;
+DROP TYPE Densidade_Regiao_Linha FORCE;
+DROP TYPE Densidade_Regiao_Table FORCE;
 
 
 DROP FUNCTION DENSIDADE_REGIAO;
