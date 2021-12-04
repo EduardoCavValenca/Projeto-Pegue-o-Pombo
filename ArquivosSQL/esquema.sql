@@ -85,6 +85,7 @@ CREATE TABLE Coco_Pombo (
     CONSTRAINT CK_Coco_Pombo_Longitude CHECK (Longitude >= -180 AND Longitude <= 180)
 );
 
+
 -- ~~~~ Tipo_Pessoa ~~~~
 CREATE TABLE Tipo_Pessoa (
     CPF VARCHAR2(11) NOT NULL,
@@ -92,8 +93,9 @@ CREATE TABLE Tipo_Pessoa (
 
     CONSTRAINT PK_Tipo_Pessoa PRIMARY KEY (CPF,Tipo),
 
-    CONSTRAINT CK_Tipo_Pessoa_CPF CHECK (LENGTH(CPF) = 11),
-    CONSTRAINT CK_Tipo_Pessoa_Tipo CHECK (UPPER(Tipo) IN ('MATADOR', 'INFORMANTE', 'ZELADOR', 'PESQUISADOR'))
+    CONSTRAINT CK_Tipo_Pessoa_Tipo CHECK (UPPER(Tipo) IN ('MATADOR', 'INFORMANTE', 'ZELADOR', 'PESQUISADOR')),
+    CONSTRAINT CK_Tipo_Pessoa_CPF CHECK (LENGTH(CPF) = 11)
+    
 );
 
 -- ~~~~ Informante ~~~~

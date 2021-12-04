@@ -102,9 +102,6 @@ INSERT INTO Bairro (Nome, Regiao)
     VALUES ('Nova Pombopolis','Zona Sul');
 
 
-
-
-
 -- ~~~~ Inserção na tabela Central Pombos ~~~~
 INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Rua, Numero)
     VALUES ('01234567891011', 'Zona Norte', '86058142', 'Rua Davis Cup' , 75);        --Central da Regiao: Zona Norte
@@ -151,6 +148,14 @@ INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP
     VALUES (25, 67.2346, 76.32346, TO_DATE('2021/11/20 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Notificado
             NULL, '50285634', 'Jardim Celeste', 'Rua dos Almirantes', 11);  
 
+INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
+    VALUES (257, 55.92234, 23.12346, TO_DATE('2021/11/15 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Notificado
+            NULL, '48520584', 'Parque Verde', 'Rua Jefferson Rodrige', 525);  
+
+INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
+    VALUES (195, 55.92234, 23.12346, TO_DATE('2021/08/08 07:34:34', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
+            TO_DATE('2021/08/18 17:30:12', 'YYYY/MM/DD HH24:MI:SS'), '48520584', 'Alto Santa Maria', 'Rua dos Brigadeiros', 537); 
+
 INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Anakin
     VALUES (123, 75.617085, 157.206858, TO_DATE('2021/11/10 13:20:51', 'YYYY/MM/DD HH24:MI:SS'),            --Relatorio Nao Finalizado
             TO_DATE('2021/11/20 10:45:38', 'YYYY/MM/DD HH24:MI:SS'), '58100456', 'Tabuleiro do Martins', 'Jornalista Renan Santiago', 01);  
@@ -189,7 +194,8 @@ INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP
 
 INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Yudi
     VALUES (20, 60.740, 12.170, TO_DATE('2020/03/14 06:49:14', 'YYYY/MM/DD HH24:MI:SS'), 
-            TO_DATE('2021/11/21 17:30:04', 'YYYY/MM/DD HH24:MI:SS'), '88812461', 'Novo Eldorado', 'Avenida Roedores', 04);
+            NULL, '88812461', 'Novo Eldorado', 'Avenida Roedores', 04);
+
 
 -- ~~~~ Inserção na tabela Tipo Pessoa ~~~~
 INSERT INTO Tipo_Pessoa (CPF, Tipo)
@@ -223,7 +229,19 @@ INSERT INTO Tipo_Pessoa (CPF, Tipo)
     VALUES ('03102496008','informante');    -- Minionzera
 
 INSERT INTO Tipo_Pessoa (CPF, Tipo)
+    VALUES ('03102496008','pesquisador');   -- Minionzera
+
+INSERT INTO Tipo_Pessoa (CPF, Tipo)
+    VALUES ('03102496008','zelador');       -- Minionzera
+    
+INSERT INTO Tipo_Pessoa (CPF, Tipo)
+    VALUES ('03102496008','matador');       -- Minionzera
+
+INSERT INTO Tipo_Pessoa (CPF, Tipo)
     VALUES ('19688269042','informante');    -- Mussattex
+
+INSERT INTO Tipo_Pessoa (CPF, Tipo)
+    VALUES ('19688269042','zelador');       -- Mussattex
     
 INSERT INTO Tipo_Pessoa (CPF, Tipo)
     VALUES ('29358867043','informante');    -- Chezon
@@ -367,10 +385,16 @@ INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)   --Na
     VALUES ('05395729513', 'Jerry', TO_DATE('1999/05/13', 'YYYY/MM/DD'), 
             '56473829', 'Avenida Higeanípolis', 313, '04171738');
 
+INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)
+    VALUES ('03102496008','Minionzera', TO_DATE('2001/06/25', 'YYYY/MM/DD'), 
+            '58025480',  'Marques de Sardinha', 69, '10145796');
 
+INSERT INTO Zelador (CPF, Nome, DataNasc, CEP, Rua, Numero, CarteiraTrab)
+    VALUES ('19688269042','Mussattex', TO_DATE('2000/04/24', 'YYYY/MM/DD'), 
+            '08330095', 'Prado de Morais', 77, '00145577');
     
--- ~~~~ Inserção na tabela Notificacao Zelador ~~~~
 
+-- ~~~~ Inserção na tabela Notificacao Zelador ~~~~
 INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
     VALUES (1, '12345678901', '01234567891011', TO_DATE('2021/12/10 10:06:06', 'YYYY/MM/DD HH24:MI:SS'));       --Retirado
 
@@ -384,11 +408,16 @@ INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)            
     VALUES (4, '94520593443', '09182736450123', TO_DATE('2020/12/21 12:36:21', 'YYYY/MM/DD HH24:MI:SS'));       --Nao Retirado
 
 INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
-    VALUES (13, '12345678901', '01234567891011', TO_DATE('2021/09/25 15:27:22', 'YYYY/MM/DD HH24:MI:SS'));      --Retirado
+    VALUES (13, '12345678901', '11019876543210', TO_DATE('2021/09/25 15:27:22', 'YYYY/MM/DD HH24:MI:SS'));      --Retirado
 
 INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
-    VALUES (25, '12345678901', '01234567891011', TO_DATE('2021/11/22 10:23:55', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
+    VALUES (25, '12345678901', '09182736450123', TO_DATE('2021/11/22 10:23:55', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
 
+INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
+    VALUES (257, '12345678901', '67890123459999', TO_DATE('2021/11/20 12:52:41', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
+
+INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
+    VALUES (195, '12345678901', '90817263540123', TO_DATE('2021/08/10 18:10:12', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
 
 
 -- ~~~~ Inserção na tabela Matador de Pombo ~~~~
@@ -412,6 +441,9 @@ INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Rua, Numero, NroL
     VALUES ('12345678901', '67890123459999', 'Ze faiz tudo', TO_DATE('1982/11/04', 'YYYY/MM/DD'),
             '13946729', 'Alameda dos Campeoes', 500, 'Ze123FT321', 'Arco e Flecha');
 
+INSERT INTO Matador_Pombos (CPF, Central, Nome, DataNasc, CEP, Rua, Numero, NroLicenca, ModeloArma)
+    VALUES ('03102496008', '67890123459999', 'Minionzera', TO_DATE('2001/06/25', 'YYYY/MM/DD'), 
+            '58025480', 'Marques de Sardinha', 69, '1596305489', 'AK-47');
 
 
 -- ~~~~ Inserção na tabela Notificacao Matador~~~~
@@ -454,6 +486,10 @@ INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)   --Se
 INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
     VALUES ('12345678901', 'Ze faiz tudo',TO_DATE('1982/11/04', 'YYYY/MM/DD'),
             '13946729','Alameda dos Campeoes', 500, 'Bacharelado');
+
+INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
+    VALUES ('03102496008','Minionzera', TO_DATE('2001/06/25', 'YYYY/MM/DD'), 
+            '58025480', 'Marques de Sardinha', 69, 'Pos-doutorado');
 
 
 
