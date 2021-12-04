@@ -513,7 +513,7 @@ IS
 
 BEGIN
 
-    SELECT Historico_Zel_Pes_Linha(Z.Nome,NF.Coco,TO_CHAR(NF.DataHora, 'HH24:MI:SS DD/MM/YYYY'), TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY'))
+    SELECT Historico_Zel_Pes_Linha(Z.Nome,NF.Coco,TO_CHAR(NF.DataHora, 'DD/MM/YYYY HH24:MI:SS'), TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS'))
     BULK COLLECT INTO Historico
     FROM Zelador Z join Notificacao_Zelador NF
     on Z.CPF = NF.Zelador AND Z.CPF = CPF_Pesquisa
@@ -532,7 +532,7 @@ IS
 
 BEGIN
 
-    SELECT Historico_Zel_Pes_Linha(P.Nome,NP.Coco, TO_CHAR(NP.DataHora, 'HH24:MI:SS DD/MM/YYYY'), TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY'))
+    SELECT Historico_Zel_Pes_Linha(P.Nome,NP.Coco, TO_CHAR(NP.DataHora, 'DD/MM/YYYY HH24:MI:SS'), TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS'))
     BULK COLLECT INTO Historico
     FROM Pesquisador P join Notificacao_Pesquisador NP
     on P.CPF = NP.Pesquisador AND P.CPF = CPF_Pesquisa
@@ -552,7 +552,7 @@ IS
 BEGIN
 
     SELECT Historico_Pesq_Full_Linha(P.Nome,NP.Coco, R.RiscoIminente,A.Peso,A.Coloracao,A.Laboratorio,
-    TO_CHAR(NP.DataHora, 'HH24:MI:SS DD/MM/YYYY'),TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY'))
+    TO_CHAR(NP.DataHora, 'DD/MM/YYYY HH24:MI:SS'),TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS'))
     BULK COLLECT INTO Historico
     FROM Pesquisador P join Notificacao_Pesquisador NP
     on P.CPF = NP.Pesquisador AND P.CPF = CPF_Pesquisa
@@ -575,7 +575,7 @@ IS
 
 BEGIN
 
-    SELECT Historico_Matador_Linha(MP.Nome, TO_CHAR(NM.DataHora, 'HH24:MI:SS DD/MM/YYYY'))
+    SELECT Historico_Matador_Linha(MP.Nome, TO_CHAR(NM.DataHora, 'DD/MM/YYYY HH24:MI:SS'))
     BULK COLLECT INTO Historico
     FROM Matador_Pombos MP join Notificacao_Matador NM
     on MP.CPF = NM.Matador AND MP.CPF = CPF_Pesquisa

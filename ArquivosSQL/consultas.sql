@@ -31,7 +31,7 @@ ORDER BY SUM(R.RiscoIminente) DESC;
 
 -- 4. Consulta Nome do zelador, CPF, ID do coco limpo e DataHora do Coco limpo mais recente
 
-SELECT  Z.Nome, NZ.Zelador AS CPF, C.ID AS ID_coco_limpo, TO_CHAR(C.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY') AS DataHora_retirado
+SELECT  Z.Nome, NZ.Zelador AS CPF, C.ID AS ID_coco_limpo, TO_CHAR(C.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS') AS DataHora_retirado
 FROM Zelador Z 
     JOIN Notificacao_Zelador NZ ON Z.CPF = NZ.Zelador 
     JOIN Coco_Pombo C ON NZ.Coco = C.ID 
@@ -41,7 +41,7 @@ ORDER BY Z.Nome;
 
 -- 5. Consulta Nome do pesquisador, CPF, ID do coco limpo e DataHora do Coco coletado mais recente
 
-SELECT  P.Nome, NP.Pesquisador AS CPF, C.ID AS ID_coco_limpo, TO_CHAR(C.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY') AS DataHora_retirado
+SELECT  P.Nome, NP.Pesquisador AS CPF, C.ID AS ID_coco_limpo, TO_CHAR(C.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS') AS DataHora_retirado
 FROM Pesquisador P 
     JOIN Notificacao_Pesquisador NP ON P.CPF = NP.Pesquisador 
     JOIN Coco_Pombo C ON NP.Coco = C.ID 
@@ -51,7 +51,7 @@ ORDER BY P.Nome;
 
 -- 6. Situacao dos Cocos por regiao
 
-SELECT B.Regiao, CP.ID, TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY') AS Data_Retirado, R.RiscoIminente
+SELECT B.Regiao, CP.ID, TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS') AS Data_Retirado, R.RiscoIminente
 FROM Bairro B 
     JOIN Coco_Pombo CP on B.Nome = CP.Bairro
     LEFT JOIN Relatorio R on R.Amostra = CP.ID  
@@ -60,8 +60,8 @@ ORDER BY B.Regiao;
 
 -- 7. Historico de Todos Zeladores
 
-SELECT Z.Nome,NF.Coco,NF.Central,TO_CHAR(NF.DataHora, 'HH24:MI:SS DD/MM/YYYY') AS Data_Notificacao,
-       TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY') AS Data_Retirado
+SELECT Z.Nome,NF.Coco,NF.Central,TO_CHAR(NF.DataHora, 'DD/MM/YYYY HH24:MI:SS') AS Data_Notificacao,
+       TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS') AS Data_Retirado
 FROM Zelador Z 
     JOIN Notificacao_Zelador NF on Z.CPF = NF.Zelador
     JOIN Coco_Pombo CP  on NF.Coco = CP.ID
@@ -201,7 +201,7 @@ SELECT * FROM TABLE(Densidade_Regiao(9));
 
 SELECT * FROM TABLE(Historico_Zelador('12345678901'));
 
-    -- SELECT Historico_Zel_Pes_Linha(Z.Nome,NF.Coco,TO_CHAR(NF.DataHora, 'HH24:MI:SS DD/MM/YYYY'), TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY'))
+    -- SELECT Historico_Zel_Pes_Linha(Z.Nome,NF.Coco,TO_CHAR(NF.DataHora, 'DD/MM/YYYY HH24:MI:SS'), TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS'))
     -- BULK COLLECT INTO Historico
     -- FROM Zelador Z join Notificacao_Zelador NF
     -- on Z.CPF = NF.Zelador AND Z.CPF = CPF_Pesquisa
@@ -211,7 +211,7 @@ SELECT * FROM TABLE(Historico_Zelador('12345678901'));
 
 SELECT * FROM TABLE(Historico_Pesquisador('81282720040'));
 
-    -- SELECT Historico_Zel_Pes_Linha(P.Nome,NP.Coco, TO_CHAR(NP.DataHora, 'HH24:MI:SS DD/MM/YYYY'), TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY'))
+    -- SELECT Historico_Zel_Pes_Linha(P.Nome,NP.Coco, TO_CHAR(NP.DataHora, 'DD/MM/YYYY HH24:MI:SS'), TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS'))
     -- BULK COLLECT INTO Historico
     -- FROM Pesquisador P join Notificacao_Pesquisador NP
     -- on P.CPF = NP.Pesquisador AND P.CPF = CPF_Pesquisa
@@ -224,7 +224,7 @@ SELECT * FROM TABLE(Historico_Pesquisador('81282720040'));
 SELECT * FROM TABLE(Historico_Pesquisador_Full('81282720040'));
 
     -- SELECT Historico_Pesq_Full_Linha(P.Nome,NP.Coco, R.RiscoIminente,A.Peso,A.Coloracao,A.Laboratorio,
-    -- TO_CHAR(NP.DataHora, 'HH24:MI:SS DD/MM/YYYY'),TO_CHAR(CP.DataHoraRetirado, 'HH24:MI:SS DD/MM/YYYY'))
+    -- TO_CHAR(NP.DataHora, 'DD/MM/YYYY HH24:MI:SS'),TO_CHAR(CP.DataHoraRetirado, 'DD/MM/YYYY HH24:MI:SS'))
     -- BULK COLLECT INTO Historico
     -- FROM Pesquisador P join Notificacao_Pesquisador NP
     -- on P.CPF = NP.Pesquisador AND P.CPF = CPF_Pesquisa
@@ -238,7 +238,7 @@ SELECT * FROM TABLE(Historico_Pesquisador_Full('81282720040'));
 
 SELECT * FROM TABLE(Historico_Matador('66666666666'));
 
-    -- SELECT Historico_Matador_Linha(MP.Nome, TO_CHAR(NM.DataHora, 'HH24:MI:SS DD/MM/YYYY'))
+    -- SELECT Historico_Matador_Linha(MP.Nome, TO_CHAR(NM.DataHora, 'DD/MM/YYYY HH24:MI:SS'))
     -- BULK COLLECT INTO Historico
     -- FROM Matador_Pombos MP join Notificacao_Matador NM
     -- on MP.CPF = NM.Matador AND MP.CPF = CPF_Pesquisa
