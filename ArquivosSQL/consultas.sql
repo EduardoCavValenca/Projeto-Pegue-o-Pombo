@@ -113,7 +113,7 @@ ORDER BY P.Nome, C.ID;
 SELECT  P.Nome AS Pesquisador, N.Coco AS ID_COCO, 
         TO_CHAR(N.DataHora, 'DD/MM/YYYY HH24:MI:SS') AS Data_Notificacao, 
         TO_CHAR(A.DataHoraColeta, 'DD/MM/YYYY HH24:MI:SS') AS Data_Coleta, 
-        R.Amostra AS ID_AMOSTRA,  
+        R.Amostra AS ID_Relatorio,  
         TO_CHAR(R.DataHora, 'DD/MM/YYYY HH24:MI:SS') AS DATA_RELATORIO
 FROM Pesquisador P
     LEFT JOIN Notificacao_Pesquisador N ON N.Pesquisador = P.CPF 
