@@ -8,7 +8,7 @@ def main():
 
 
     while(1):
-        escolha = input("Digite 1 para uma insercao, 2 para consulta e 3 para finalizar programa: ")
+        escolha = input("\n\nDigite:\n1 para uma insercao\n2 para consulta\n3 para finalizar programa\nEntrada: ")
         if escolha=='1':
             insercao.RealizaInsercao(cursor)
             
@@ -17,6 +17,7 @@ def main():
 
         elif escolha=='3':
             connections.disconnect(connection,cursor)
+            print("Banco Desconectado")
             exit(0)
 
     

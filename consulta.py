@@ -1,8 +1,9 @@
 import cx_Oracle
+from printfunctions import *
 
 def RealizaConsulta(cursor):
 
-    tipo_consulta = input("Digite 1 para uma consulta geral, 2 para consulta especifica ou outro numero para retornar ao menu: ")
+    tipo_consulta = input("\n\nDigite: \n1 para uma consulta geral \n2 para consulta especifica \noutro numero para retornar ao menu\nEntrada:")
 
     if tipo_consulta == '1' or tipo_consulta == '2':
 
@@ -17,19 +18,15 @@ def RealizaConsulta(cursor):
 def ConsultaGeral(cursor):
 
     Possibilidades=["Pesquisador","Informante","Zelador",
-            "Matador_pombos","Central_Pombos","Coco_Pombo",
-            "Amostra","Regiao","Bairro","Celular","Informa_Coco",
-            "Laboratorio","Notificacao_Matador","Notificacao_Pesquisador",
-            "Notificacao_Zelador","Relatorio", "Sensor_Densidade_Pombo",
-            "Dados_Densidade","Tipo_Pessoa"] 
+            "Matador_pombos","Central_Pombos","Coco_Pombo"] 
         
 
-    print("Digite o digito da tabela correspondente desejada, caso queria desistir digite qualquer numero nao presente")
+    print("\n\nDigite o digito da tabela correspondente desejada, caso queria desistir digite qualquer numero nao presente")
 
     for i in range(len(Possibilidades)):
         print((i+1),"- ",Possibilidades[i])
 
-    escolha = input("Digite o numero de entrada: ")
+    escolha = input("\nDigite o numero de entrada: ")
 
     try:
         escolha = int(escolha)
@@ -38,7 +35,14 @@ def ConsultaGeral(cursor):
 
     if escolha >= 1 and escolha <= len(Possibilidades):
         
-        string_busca = "SELECT * FROM " + Possibilidades[escolha-1]
+        string_busca=""
+
+        if escolha == 1 : string_busca= busca_Pesquisador()
+        if escolha == 2 : string_busca= busca_Informante()
+        if escolha == 3 : string_busca= busca_Zelador()
+        if escolha == 4 : string_busca= busca_Matador()
+        if escolha == 5 : string_busca= busca_Central()
+        if escolha == 6 : string_busca= busca_Cocos()
 
         try:
             cursor.execute(string_busca)
@@ -46,9 +50,13 @@ def ConsultaGeral(cursor):
             print("Erro ao consultar tabela: ", error)
             return
 
-
-        for result in cursor:
-            print(result)
+        if escolha == 1 : string_busca= print_pesquisador(cursor)
+        if escolha == 2 : string_busca= print_informante(cursor)
+        if escolha == 3 : string_busca= print_zelador(cursor)
+        if escolha == 4 : string_busca= print_matador(cursor)
+        if escolha == 5 : string_busca= print_central(cursor)
+        if escolha == 6 : string_busca= print_coco(cursor)
+        
     
 
 def ConsultaEspecifica(cursor):
@@ -59,12 +67,12 @@ def ConsultaEspecifica(cursor):
                     "Historico completo de Pesquisador X",
                     "Historico de Matador de Pombo X",] 
 
-    print("Digite o digito da consulta correspondente desejada, caso queria desistir digite qualquer numero nao presente")
+    print("\n\nDigite o digito da consulta correspondente desejada, caso queria desistir digite qualquer numero nao presente")
 
     for i in range(len(Possibilidades)):
         print((i+1),"- ",Possibilidades[i])
 
-    escolha = input("Digite o numero de entrada: ")
+    escolha = input("\nDigite o numero de entrada: ")
 
     try:
         escolha = int(escolha)
@@ -74,16 +82,15 @@ def ConsultaEspecifica(cursor):
     if escolha >= 1 and escolha <= len(Possibilidades):
 
         if escolha == 1:
-            escolha = input("Digite a densidade de pombos minima (Recomendado ser < 10): ")
+            escolha = input("\nDigite a densidade de pombos minima (Recomendado ser < 10): ")
             try:
-                escolha = int(escolha)
+                escolha = float(escolha)
             except:
                 return
 
             string_busca = "SELECT * FROM TABLE(Densidade_Regiao("+str(escolha)+"))"
 
             try:
-                print(string_busca)
                 cursor.execute(string_busca)
 
             except cx_Oracle.DatabaseError as error:
@@ -91,12 +98,13 @@ def ConsultaEspecifica(cursor):
                 print("Erro ao consultar tabela: ", error)
                 return
 
+            print("\n")
             for result in cursor:
-                print(result)
+                print("Regiao:",result[0],", Densidade de Pombos:",result[1])
 
         else:
 
-            CPF = input("Digite o CPF do trabalhador (apenas os 11 numeros): ")
+            CPF = input("\nDigite o CPF do trabalhador (apenas os 11 numeros): ")
 
             string_busca = "SELECT * FROM TABLE"
 
@@ -104,8 +112,58 @@ def ConsultaEspecifica(cursor):
             if escolha == 3 : string_busca += "(Historico_Pesquisador("+str(CPF)+"))"
             if escolha == 4 : string_busca += "(Historico_Pesquisador_Full("+str(CPF)+"))"
             if escolha == 5 : string_busca += "(Historico_Matador("+str(CPF)+"))"
-
-            cursor.execute(string_busca)
             
-            for result in cursor:
-                print(result)
+            try:
+                cursor.execute(string_busca)
+
+            except cx_Oracle.DatabaseError as error:
+
+                print("Erro ao consultar Funcao: ", error)
+                return
+
+            CPF_encontrado = False
+
+            if escolha == 2 : CPF_encontrado = print_historico_zelador(cursor)
+            if escolha == 3 : CPF_encontrado = print_historico_pesquisador(cursor)
+            if escolha == 4 : CPF_encontrado = print_historico_pesquisador_full(cursor)
+            if escolha == 5 : CPF_encontrado = print_historico_matador(cursor)
+
+
+            if not CPF_encontrado:
+                print("\nCPF nao foi encontrado no banco de dados")
+
+
+def busca_Pesquisador():
+    busca = """SELECT CPF,NOME,TO_CHAR(DATANASC, 'DD/MM/YYYY'),
+    CEP,RUA,NUMERO,FORMACAO FROM PESQUISADOR"""
+    
+    return busca
+
+def busca_Zelador():
+    busca = """SELECT CPF,NOME,TO_CHAR(DATANASC, 'DD/MM/YYYY'),
+    CEP,RUA,NUMERO,CARTEIRATRAB FROM ZELADOR"""
+    
+    return busca
+
+def busca_Informante():
+    busca = """SELECT CPF,NOME,TO_CHAR(DATANASC, 'DD/MM/YYYY'),
+    CEP,RUA,NUMERO FROM INFORMANTE"""
+    
+    return busca
+
+def busca_Matador():
+    busca = """SELECT CPF,CENTRAL,NOME,TO_CHAR(DATANASC, 'DD/MM/YYYY'),
+    CEP,RUA,NUMERO,NROLICENCA,MODELOARMA FROM MATADOR_POMBOS"""
+    
+    return busca
+
+def busca_Central():
+    busca = """SELECT * FROM CENTRAL_POMBOS"""
+
+    return busca
+
+def busca_Cocos():
+    busca = """SELECT ID,LATITUDE,LONGITUDE, TO_CHAR(DATAHORA, 'DD/MM/YYYY HH24:MI:SS'),
+    TO_CHAR(DATAHORARETIRADO, 'DD/MM/YYYY HH24:MI:SS'),CEP,BAIRRO,RUA,NUMERO FROM COCO_POMBO"""
+
+    return busca
