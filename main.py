@@ -8,9 +8,9 @@ def main():
 
 
     while(1):
-        escolha = input("\n\nDigite:\n1 para uma insercao\n2 para consulta\n3 para finalizar programa\nEntrada: ")
+        escolha = input("\n\nDigite:\n1 para Logar/Cadastrar\n2 para consulta\n3 para finalizar programa\nEntrada: ")
         if escolha=='1':
-            insercao.RealizaInsercao(cursor)
+            insercao.RealizaInsercao(connection,cursor)
             
         elif escolha=='2':
             consulta.RealizaConsulta(cursor)
