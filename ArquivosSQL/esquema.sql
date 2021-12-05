@@ -1,40 +1,16 @@
--- **************** Observacoes **********************
+-- **************** Tabelas **********************
+-- ~~~~~~~~ Observacoes ~~~~~~~~
 --  1.  Para os atributos númericos de tamanho fixo, como CPF,
 --      CNPJ, CEP, e Numero de Celular, preferiu-se utilizar o tipo VARCHAR2 
 --      em conjunto com um CHECK para garantir que os campos tivessem o tamanho designado.
--- 
---  2.  Para os Triggers de CPF, a logica utilizada foi usar um SELECT com COUNT para
---      verificar se o cpf que esta sendo inserido ja esta na tabela Tipo_Pessoa e se 
---      seu tipo eh compativel. 
---      Por exemplo, antes de inserir uma entrada na tabela Informante, o trigger verifica
---      se o CPF sendo cadastrado ja esta na tabela Tipo_Pessoa, se sim, ele verifica se o
---      tipo cadastrado eh 'INFORMANTE'. Se algo estiver errrado, ele lanca uma excessao e 
---      impede a insersão. 
--- 
---  3.  Para os Triggers de Data Notificacao, a logica utilizada foi apenas verificar se,
---      para um determinado Coco, a data da notificacao que está sendo inserida não eh menor
---      que a data na qual o coco foi inserido no sistema
--- 
---  4.  Para o Trigger de Data Amostra, eh verificado se a data de coleta nao eh menor que
---      a data na qual o coco foi informado no sistema
--- 
---  5.  Para o Trigger de Data Relatorio, eh verificado se a data do relatorio a ser inserida não
---      eh menor que a data em que o coco foi coletado (Amostra)
--- 
---  6.  Para os Triggers de Coco Ja Retirado, a ideia foi similiar aquela usada nos Triggers de 
---      Data Notificacao, durante a isnersao de uma Notificao para o Pesquisador, verifica-se se 
---      ja nao existe uma notificao Zelador para aquele mesmo coco, se sim, o trigger impede a insersão.
---      O mesmo ocorre quando inserindo um Notificao para o Pesquisador.
--- 
 
-
--- **************** Tabelas **********************
 -- ~~~~ Regiao ~~~~
 CREATE TABLE Regiao (
     Nome VARCHAR2(40) NOT NULL,
 
     CONSTRAINT PK_Regiao PRIMARY KEY (Nome)
 );
+
 
 -- ~~~~ Bairro ~~~~
 CREATE TABLE Bairro (
@@ -44,6 +20,7 @@ CREATE TABLE Bairro (
     CONSTRAINT PK_Bairro PRIMARY KEY (Nome),
     CONSTRAINT FK_Bairro_Regiao FOREIGN KEY (Regiao) REFERENCES Regiao(Nome) ON DELETE CASCADE
 );
+
 
 -- ~~~~ Central de Pombo ~~~~
 CREATE TABLE Central_Pombos (
@@ -61,6 +38,7 @@ CREATE TABLE Central_Pombos (
     CONSTRAINT CK_Central_Pombos_CEP CHECK (LENGTH(CEP) = 8),
     CONSTRAINT CK_Central_Pombos_Numero CHECK (Numero > 0)
 );
+
 
 -- ~~~~ Coco_Pombo ~~~~
 CREATE TABLE Coco_Pombo (
@@ -98,6 +76,7 @@ CREATE TABLE Tipo_Pessoa (
     
 );
 
+
 -- ~~~~ Informante ~~~~
 CREATE TABLE Informante (
     CPF VARCHAR2(11) NOT NULL,
@@ -114,6 +93,7 @@ CREATE TABLE Informante (
     CONSTRAINT CK_Informante_Numero CHECK (Numero > 0)
 );
 
+
 -- ~~~~ Celular ~~~~
 CREATE TABLE Celular(
     Numero VARCHAR2(11) NOT NULL,
@@ -126,6 +106,7 @@ CREATE TABLE Celular(
     CONSTRAINT CK_Celular_Numero CHECK (LENGTH(Numero) = 11)
 );
 
+
 -- ~~~~ Informa_Coco ~~~~
 CREATE TABLE Informa_Coco(
     Celular VARCHAR2(11) NOT NULL,  --FK: Numero do Celular
@@ -136,7 +117,6 @@ CREATE TABLE Informa_Coco(
     CONSTRAINT FK_Informa_Coco_Celular FOREIGN KEY (Celular) REFERENCES Celular (Numero) ON DELETE CASCADE,
     CONSTRAINT FK_Informa_Coco_Coco FOREIGN KEY (Coco) REFERENCES Coco_Pombo (ID) ON DELETE CASCADE
 );
-
 
 
 -- ~~~~ Zelador ~~~~
@@ -157,6 +137,7 @@ CREATE TABLE Zelador (
     CONSTRAINT CK_Zelador_Numero CHECK (Numero > 0)
 );
 
+
 -- ~~~~ Notificacao_Zelador ~~~~
 CREATE TABLE Notificacao_Zelador (
     Coco NUMBER NOT NULL,
@@ -168,6 +149,7 @@ CREATE TABLE Notificacao_Zelador (
     CONSTRAINT FK_Notificacao_Zelador_Zelador FOREIGN KEY (Zelador) REFERENCES Zelador(CPF) ON DELETE CASCADE,
     CONSTRAINT FK_Notificacao_Zelador_Coco FOREIGN KEY (Coco) REFERENCES Coco_Pombo(ID) ON DELETE CASCADE
 );
+
 
 -- ~~~~ Matador de Pombos ~~~~
 CREATE TABLE Matador_Pombos 
@@ -194,6 +176,7 @@ CREATE TABLE Matador_Pombos
 
 );
 
+
 -- ~~~~ Notificacao Matador ~~~~
 CREATE TABLE Notificacao_Matador (
     Matador VARCHAR2(11) NOT NULL,  --FK: CPF do Matador
@@ -203,6 +186,7 @@ CREATE TABLE Notificacao_Matador (
     CONSTRAINT FK_Notificacao_Matador_Matador FOREIGN KEY (Matador) REFERENCES Matador_Pombos(CPF) ON DELETE CASCADE
 
 );
+
 
 -- ~~~~ Pesquisador ~~~~
 CREATE TABLE Pesquisador(
@@ -222,6 +206,7 @@ CREATE TABLE Pesquisador(
     CONSTRAINT CK_Pesquisador_Numero CHECK (Numero > 0)
 );
 
+
 -- ~~~~ Notificacao_Pesquisador ~~~~
 CREATE TABLE Notificacao_Pesquisador (
     Pesquisador VARCHAR2(11) NOT NULL,  --FK: CPF do Pesquiasdor
@@ -234,6 +219,7 @@ CREATE TABLE Notificacao_Pesquisador (
     CONSTRAINT FK_Notifi_Pesquisador_Central FOREIGN KEY (Central) REFERENCES Central_Pombos (CNPJ) ON DELETE CASCADE,
     CONSTRAINT FK_Notifi_Pesquisador_Coco FOREIGN KEY (Coco) REFERENCES Coco_Pombo (ID) ON DELETE CASCADE
 );
+
 
 -- ~~~~ Laboratorio ~~~~
 CREATE TABLE Laboratorio (
@@ -249,6 +235,7 @@ CREATE TABLE Laboratorio (
     CONSTRAINT CK_Laboratorio_Numero CHECK (Numero > 0)
 
 );
+
 
 -- ~~~~ Amostra ~~~~
 CREATE TABLE Amostra (
@@ -269,6 +256,7 @@ CREATE TABLE Amostra (
 
 );
 
+
 -- ~~~~ Relatorio ~~~~
 CREATE TABLE Relatorio (
     Amostra NUMBER NOT NULL,    --FK: ID do Coco da Amostra
@@ -281,6 +269,7 @@ CREATE TABLE Relatorio (
     CONSTRAINT CK_Relatorio_Risco CHECK (RiscoIminente = 1 OR RiscoIminente = 0)  --RiscoIminente eh um booleano
 );
 
+
 -- ~~~~ Sensor Densidade de Pombo ~~~~
 CREATE TABLE Sensor_Densidade_Pombo (
     NroSerie VARCHAR2(10) NOT NULL,
@@ -291,6 +280,7 @@ CREATE TABLE Sensor_Densidade_Pombo (
     
     CONSTRAINT CK_SDP_NroSerie CHECK (LENGTH(NroSerie)=10)
 );
+
 
 -- ~~~~ Dados_Densidade ~~~~
 CREATE TABLE Dados_Densidade (
@@ -305,7 +295,35 @@ CREATE TABLE Dados_Densidade (
 );
 
 
+
+
+
+
 -- **************** Triggers **********************
+-- **************** Observacoes **********************-- 
+--  1.  Para os Triggers de CPF, a logica utilizada foi usar um SELECT com COUNT para
+--      verificar se o cpf que esta sendo inserido ja esta na tabela Tipo_Pessoa e se 
+--      seu tipo eh compativel. 
+--      Por exemplo, antes de inserir uma entrada na tabela Informante, o trigger verifica
+--      se o CPF sendo cadastrado ja esta na tabela Tipo_Pessoa, se sim, ele verifica se o
+--      tipo cadastrado eh 'INFORMANTE'. Se algo estiver errrado, ele lanca uma excessao e 
+--      impede a insersão. 
+-- 
+--  2.  Para os Triggers de Data Notificacao, a logica utilizada foi apenas verificar se,
+--      para um determinado Coco, a data da notificacao que está sendo inserida não eh menor
+--      que a data na qual o coco foi inserido no sistema
+-- 
+--  3.  Para o Trigger de Data Amostra, eh verificado se a data de coleta nao eh menor que
+--      a data na qual o coco foi informado no sistema
+-- 
+--  4.  Para o Trigger de Data Relatorio, eh verificado se a data do relatorio a ser inserida não
+--      eh menor que a data em que o coco foi coletado (Amostra)
+-- 
+--  5.  Para os Triggers de Coco Ja Retirado, a ideia foi similiar aquela usada nos Triggers de 
+--      Data Notificacao, durante a isnersao de uma Notificao para o Pesquisador, verifica-se se 
+--      ja nao existe uma notificao Zelador para aquele mesmo coco, se sim, o trigger impede a insersão.
+--      O mesmo ocorre quando inserindo um Notificao para o Pesquisador.
+
 -- ~~~~ CPF Matador de Pombos ~~~~
 CREATE OR REPLACE TRIGGER TR_CPF_Matador
     BEFORE INSERT OR UPDATE ON Matador_Pombos FOR EACH ROW
@@ -321,6 +339,8 @@ BEGIN
     END IF;
 END;
 /
+
+
 -- ~~~~ CPF Informante ~~~~
 CREATE OR REPLACE TRIGGER TR_CPF_Informante 
     BEFORE INSERT OR UPDATE ON Informante FOR EACH ROW
@@ -336,6 +356,8 @@ BEGIN
     END IF;
 END;  
 /
+
+
 -- ~~~~ CPF Pesquisador ~~~~
 CREATE OR REPLACE TRIGGER TR_CPF_Pesquisador
     BEFORE INSERT OR UPDATE ON Pesquisador FOR EACH ROW
@@ -351,6 +373,8 @@ BEGIN
     END IF;
 END;  
 /
+
+
 -- ~~~~ CPF Zelador ~~~~
 CREATE OR REPLACE TRIGGER TR_CPF_Zelador
     BEFORE INSERT OR UPDATE ON Zelador FOR EACH ROW
@@ -366,6 +390,8 @@ BEGIN
     END IF;
 END;
 /
+
+
 -- ~~~~ Data Notificacao Pesquisador ~~~~
 CREATE OR REPLACE TRIGGER TR_DATE_Notif_Pesquisador
     BEFORE INSERT OR UPDATE ON Notificacao_Pesquisador FOR EACH ROW
@@ -381,6 +407,8 @@ BEGIN
     END IF;
 END;
 /
+
+
 -- ~~~~ Data Notificacao Zelador ~~~~
 CREATE OR REPLACE TRIGGER TR_DATE_Notificacao_Zelador
     BEFORE INSERT OR UPDATE ON Notificacao_Zelador FOR EACH ROW
@@ -396,6 +424,8 @@ BEGIN
     END IF;
 END;
 /
+
+
 -- ~~~~ Data Amostra ~~~~
 CREATE OR REPLACE TRIGGER TR_DATE_Amostra
     BEFORE INSERT OR UPDATE ON Amostra FOR EACH ROW
@@ -411,6 +441,8 @@ BEGIN
     END IF;
 END;
 /
+
+
 -- ~~~~ Data Relatorio ~~~~
 CREATE OR REPLACE TRIGGER TR_DATE_Relatorio
     BEFORE INSERT OR UPDATE ON Relatorio FOR EACH ROW
@@ -426,6 +458,8 @@ BEGIN
     END IF;
 END;
 /
+
+
 -- ~~~~ Notificacao Pesquisador ja  Retirada ~~~~
 CREATE OR REPLACE TRIGGER TR_Coco_NotifPesquisador
     BEFORE INSERT OR UPDATE ON NOTIFICACAO_PESQUISADOR FOR EACH ROW
@@ -441,6 +475,8 @@ BEGIN
     END IF;
 END;
 /
+
+
 -- ~~~~ Notificacao Zelador ja Coletada ~~~~
 CREATE OR REPLACE TRIGGER TR_Coco_NotifZelador
     BEFORE INSERT OR UPDATE ON Notificacao_zelador FOR EACH ROW
@@ -455,6 +491,10 @@ BEGIN
     THEN RAISE_APPLICATION_ERROR(-20250, 'Coco ja coletado por um Pesquisador');
     END IF;
 END;
+
+
+
+
 
 
 -- **************** TYPE OBJECTS **********************
@@ -484,12 +524,12 @@ CREATE OR REPLACE TYPE Historico_Pesq_Full_Linha AS OBJECT(
 /
 CREATE OR REPLACE TYPE Historico_Pesq_Full_Table AS TABLE OF Historico_Pesq_Full_Linha;
 
+
 /
 CREATE OR REPLACE TYPE Historico_Matador_Linha AS OBJECT(
     Nome VARCHAR2(40),
     Data_Notificacao VARCHAR2(20)
 );
-
 /
 CREATE OR REPLACE TYPE Historico_Matador_Table AS TABLE OF Historico_Matador_Linha;
 
@@ -499,9 +539,12 @@ CREATE OR REPLACE TYPE Densidade_Regiao_Linha AS OBJECT(
     Regiao VARCHAR2(40),
     Densidade NUMBER
 );
-
 /
 CREATE OR REPLACE TYPE Densidade_Regiao_Table AS TABLE OF Densidade_Regiao_Linha;
+
+
+
+
 
 
 -- **************** FUNCTIONS **********************
@@ -525,6 +568,7 @@ RETURN Historico;
 END;
 /
 
+
 CREATE OR REPLACE FUNCTION Historico_Pesquisador (CPF_Pesquisa IN VARCHAR2)
 RETURN Historico_Zel_Pes_Table
 IS
@@ -543,6 +587,7 @@ BEGIN
 RETURN Historico;
 END;
 /
+
 
 CREATE OR REPLACE FUNCTION Historico_Pesquisador_Full (CPF_Pesquisa IN VARCHAR2)
 RETURN Historico_Pesq_Full_Table
@@ -568,6 +613,7 @@ RETURN Historico;
 END;
 /
 
+
 CREATE OR REPLACE FUNCTION Historico_Matador (CPF_Pesquisa IN VARCHAR2)
 RETURN Historico_Matador_Table
 IS
@@ -583,9 +629,9 @@ BEGIN
 
 RETURN Historico;
 END;
-
-
 /
+
+
 CREATE OR REPLACE FUNCTION Densidade_Regiao (Media IN NUMBER)
 RETURN Densidade_Regiao_Table
 IS
