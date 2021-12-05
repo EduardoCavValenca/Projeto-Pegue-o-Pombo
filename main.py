@@ -17,7 +17,7 @@ def main():
 
         elif escolha=='3':
             connections.disconnect(connection,cursor)
-            print("Banco Desconectado")
+            print("\nBanco Desconectado")
             exit(0)
 
     

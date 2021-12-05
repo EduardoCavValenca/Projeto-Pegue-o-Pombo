@@ -47,7 +47,7 @@ CREATE TABLE Coco_Pombo (
     Longitude NUMBER(9,6) NOT NULL, --Longitude possui no max 3 digitos antes do ponto e 6 digitos depois do ponto
     DataHora DATE NOT NULL,
     DataHoraRetirado DATE,
-    CEP CHAR(8),
+    CEP VARCHAR2(8),
     Bairro VARCHAR2(40),    --FK: Nome do Bairro
     Rua VARCHAR2(40),
     Numero NUMBER(5),
@@ -169,7 +169,7 @@ CREATE TABLE Matador_Pombos
 
     CONSTRAINT UN_Matador_Pombos_Licenca UNIQUE (NroLicenca),
     
-    -- CONSTRAINT CK_Matador_Pombos_CPF CHECK (LENGTH(CPF) = 11), --Ja verificado em Tipo Pessoa RETIRAR??????
+    -- CONSTRAINT CK_Matador_Pombos_CPF CHECK (LENGTH(CPF) = 11), --Ja verificado em Tipo Pessoa 
     CONSTRAINT CK_Matador_Pombos_NroLicenca CHECK (LENGTH(NroLicenca) = 10),
     CONSTRAINT CK_Matador_Pombos_CEP CHECK (LENGTH(CEP) = 8),
     CONSTRAINT CK_Matador_Pombos_Numero CHECK (Numero > 0)
