@@ -33,9 +33,11 @@ def connect():
 
 
 def disconnect(connection,cursor):
-    cursor.close()
-    connection.close()
+    try:
 
+        cursor.close()
+        connection.close()
+    
+    except:
 
-
-connect()
+        print("Erro ao desconectar da  base de dados")
