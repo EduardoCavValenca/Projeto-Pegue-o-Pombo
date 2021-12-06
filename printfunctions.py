@@ -1,5 +1,6 @@
 import cx_Oracle
 
+#Printa historico do zelador
 def print_historico_zelador(cursor):
     CPF_encontrado = False
     for result in cursor:
@@ -14,9 +15,9 @@ def print_historico_zelador(cursor):
 
     print("\n")
 
-    return CPF_encontrado
+    return CPF_encontrado #Caso nao tenha retornado tuplas é falso
 
-
+#Printa historico do Pesquisador
 def print_historico_pesquisador(cursor):
     CPF_encontrado = False
     for result in cursor:
@@ -31,9 +32,10 @@ def print_historico_pesquisador(cursor):
     
     print("\n")
 
-    return CPF_encontrado
+    return CPF_encontrado #Caso nao tenha retornado tuplas é falso
 
 
+#Printa historico do Pesquisador de forma detalhada
 def print_historico_pesquisador_full(cursor):
     CPF_encontrado = False
     for result in cursor:
@@ -50,9 +52,10 @@ def print_historico_pesquisador_full(cursor):
 
     print("\n")
 
-    return CPF_encontrado
+    return CPF_encontrado #Caso nao tenha retornado tuplas é falso
 
 
+#Printa historico do matador
 def print_historico_matador(cursor):
     CPF_encontrado = False
     for result in cursor:
@@ -65,9 +68,10 @@ def print_historico_matador(cursor):
     
     print("\n")
 
-    return CPF_encontrado
+    return CPF_encontrado #Caso nao tenha retornado tuplas é falso
 
 
+#Printa dados gerais dos pesquisadores
 def print_pesquisador(cursor):
 
     print("\n\n")
@@ -77,6 +81,8 @@ def print_pesquisador(cursor):
     
     print("\n")
 
+
+#Printa dados gerais dos informantes
 def print_informante(cursor):
 
     print("\n\n")
@@ -86,6 +92,8 @@ def print_informante(cursor):
     
     print("\n")
 
+
+#Printa dados gerais dos zeladores
 def print_zelador(cursor):
 
     print("\n\n")
@@ -96,6 +104,7 @@ def print_zelador(cursor):
     print("\n")
 
 
+#Printa dados gerais dos matadores
 def print_matador(cursor):
 
     print("\n\n")
@@ -107,6 +116,7 @@ def print_matador(cursor):
     print("\n")
 
 
+#Printa dados gerais das centrais
 def print_central(cursor):
     print("\n\n")
     for result in cursor:
@@ -116,6 +126,7 @@ def print_central(cursor):
     print("\n")
 
 
+#Printa dados gerais dos Cocos
 def print_coco(cursor):
     print("\n\n")
     for result in cursor:

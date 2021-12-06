@@ -25,6 +25,7 @@ drop table DADOS_DENSIDADE cascade constraints;
 
 
 
+
 DROP TYPE Historico_Zel_Pes_Linha FORCE;
 DROP TYPE Historico_Zel_Pes_Table FORCE;
 DROP TYPE Historico_Pesq_Full_Linha FORCE;

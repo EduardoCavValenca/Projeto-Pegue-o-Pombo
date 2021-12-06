@@ -1,12 +1,11 @@
 import connections
 import consulta
 import insercao
-# import cx_Oracle
 
 def main():
-    connection,cursor = connections.connect()
+    connection,cursor = connections.connect() #Retorna dados da conexao
 
-
+    #Opcoes do menu
     while(1):
         escolha = input("\n\nDigite:\n1 para Logar/Cadastrar\n2 para consulta\n3 para finalizar programa\nEntrada: ")
         if escolha=='1':
@@ -25,7 +24,4 @@ def main():
     return 0
 
 
-
-
-
-main()
+main() #Roda o programa

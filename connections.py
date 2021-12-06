@@ -6,6 +6,8 @@ import os
 def connect():
 
     try:
+        #Carrega dados para conexao
+        #feito em arquivo separado por seguranca
         load_dotenv()
         HOSTNAME = os.getenv("HOSTNAME")
         PORT = os.getenv("PORT")
@@ -25,16 +27,12 @@ def connect():
 
     except:
         print("Erro ao carregar conexao com base de dados")
-
-    return 1
-
-
-   
+        exit(0)
 
 
 def disconnect(connection,cursor):
     try:
-
+        #Fecha conexoes
         cursor.close()
         connection.close()
     
