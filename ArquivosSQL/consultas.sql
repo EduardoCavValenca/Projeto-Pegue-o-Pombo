@@ -78,17 +78,18 @@ ORDER BY Z.Nome,NF.DataHora;
 --          Numero Amostras Enviadas para Laboratorio
 --          Numero de Relatorios Finalizados
 
+
 SELECT  P.Nome AS Pesquisador, P.CPF, 
         COUNT (N.Coco) AS N_Notif_Recebidas, 
         COUNT (C.DataHoraRetirado) AS N_Notif_Atendidas,
         COUNT (A.Coco) AS N_Amostras_Coletadas, 
         COUNT (R.Amostra) AS N_Amostras_Enviadas, 
         COUNT (R.DataHora) AS N_Relatorios_Finalizados
-FROM PESQUISADOR P
-    LEFT JOIN NOTIFICACAO_PESQUISADOR N ON N.Pesquisador = P.CPF
-    LEFT JOIN Coco_Pombo C ON N.Coco = c.ID
+FROM Coco_Pombo C
+    JOIN Notificacao_Pesquisador N ON C.ID = N.Coco
     LEFT JOIN Amostra A ON A.Coco = C.ID
     LEFT JOIN Relatorio R ON R.Amostra = A.Coco
+    RIGHT JOIN Pesquisador P ON P.CPF = N.Pesquisador
 GROUP BY P.CPF, P.Nome
 ORDER BY P.Nome;
 
