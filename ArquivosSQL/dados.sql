@@ -120,80 +120,98 @@ INSERT INTO Central_Pombos (CNPJ, Regiao, CEP, Rua, Numero)
 
 
 -- ~~~~ Inserção na tabela Coco_Pombo ~~~~
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
-    VALUES (1, 76.8171, 156.419902, TO_DATE('2021/10/10 10:45:38', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
+--1
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
+    VALUES (76.8171, 156.419902, TO_DATE('2021/10/10 10:45:38', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
             TO_DATE('2021/10/11 12:50:12', 'YYYY/MM/DD HH24:MI:SS'), '26215415', 'Central', 'Silvestre Coelho', 456);
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Robertinho do Vassourao
-    VALUES (2, 81.2041, 155.273612, TO_DATE('2019/12/01 22:52:24', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
+--2
+INSERT INTO Coco_Pombo ( Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Robertinho do Vassourao
+    VALUES (81.2041, 155.273612, TO_DATE('2019/12/01 22:52:24', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
             TO_DATE('2021/12/01 23:50:12', 'YYYY/MM/DD HH24:MI:SS'), '78556634', 'Jardim Celeste', 'Rua das Goiabeiras', 100); 
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Dona Creuza
-    VALUES (3, 70.4212, 154.109436, TO_DATE('2019/01/01 00:00:01', 'YYYY/MM/DD HH24:MI:SS'),                --Nao Retirado
+--3
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Dona Creuza
+    VALUES (70.4212, 154.109436, TO_DATE('2019/01/01 00:00:01', 'YYYY/MM/DD HH24:MI:SS'),                --Nao Retirado
             NULL, '69077450', 'Bela Aliança', 'Quadra B', 24);
-    
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Zelador do Clipe do Nirvana
-    VALUES (4, 75.9296, 156.370572, TO_DATE('2020/02/02 22:22:22', 'YYYY/MM/DD HH24:MI:SS'),                --Nao Retirado
+
+--4 
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Zelador do Clipe do Nirvana
+    VALUES (75.9296, 156.370572, TO_DATE('2020/02/02 22:22:22', 'YYYY/MM/DD HH24:MI:SS'),                --Nao Retirado
             NULL, '45601140', 'Parque Verde', 'Alameda das Angélicas', 225);
-  
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Nao Notificado Para Nenhum Zelador
-    VALUES (5, 74.9296, 156.370546, TO_DATE('2021/09/30 14:47:52', 'YYYY/MM/DD HH24:MI:SS'), 
+
+--5
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Nao Notificado Para Nenhum Zelador
+    VALUES (74.9296, 156.370546, TO_DATE('2021/09/30 14:47:52', 'YYYY/MM/DD HH24:MI:SS'), 
             NULL, '64212385', 'Alto Santa Maria', 'Vinte Dois de Março', 89);  
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
-    VALUES (13, 45.9296, 87.370546, TO_DATE('2021/09/15 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
+--6
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
+    VALUES (45.9296, 87.370546, TO_DATE('2021/09/15 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
             TO_DATE('2021/10/11 12:50:12', 'YYYY/MM/DD HH24:MI:SS'), '38560437', 'Central', 'Rua 25 de Marco', 55);  
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
-    VALUES (25, 67.2346, 76.32346, TO_DATE('2021/11/20 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Notificado
+--7
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
+    VALUES (67.2346, 76.32346, TO_DATE('2021/11/20 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Notificado
             NULL, '50285634', 'Jardim Celeste', 'Rua dos Almirantes', 11);  
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
-    VALUES (257, 55.92234, 23.12346, TO_DATE('2021/11/15 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Notificado
+--8
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
+    VALUES (55.92234, 23.12346, TO_DATE('2021/11/15 14:47:52', 'YYYY/MM/DD HH24:MI:SS'),                --Notificado
             NULL, '48520584', 'Parque Verde', 'Rua Jefferson Rodrige', 525);  
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
-    VALUES (195, 55.92234, 23.12346, TO_DATE('2021/08/08 07:34:34', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
+--9
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Zelador: Ze faiz tudo
+    VALUES (55.92234, 23.12346, TO_DATE('2021/08/08 07:34:34', 'YYYY/MM/DD HH24:MI:SS'),                --Retirado
             TO_DATE('2021/08/18 17:30:12', 'YYYY/MM/DD HH24:MI:SS'), '48520584', 'Alto Santa Maria', 'Rua dos Brigadeiros', 537); 
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Anakin
-    VALUES (123, 75.617085, 157.206858, TO_DATE('2021/11/10 13:20:51', 'YYYY/MM/DD HH24:MI:SS'),            --Relatorio Nao Finalizado
+--10
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Anakin
+    VALUES (75.617085, 157.206858, TO_DATE('2021/11/10 13:20:51', 'YYYY/MM/DD HH24:MI:SS'),            --Relatorio Nao Finalizado
             TO_DATE('2021/11/20 10:45:38', 'YYYY/MM/DD HH24:MI:SS'), '58100456', 'Tabuleiro do Martins', 'Jornalista Renan Santiago', 01);  
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Joao Coluna
-    VALUES (666, 75.169157, 155.125823, TO_DATE('2021/11/20 10:50:14', 'YYYY/MM/DD HH24:MI:SS'),            --Relatorio Pronto
+--11
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Joao Coluna
+    VALUES (75.169157, 155.125823, TO_DATE('2021/11/20 10:50:14', 'YYYY/MM/DD HH24:MI:SS'),            --Relatorio Pronto
             TO_DATE('2021/11/21 17:30:04', 'YYYY/MM/DD HH24:MI:SS'), '23061495', 'Cosmos', 'Rua Costinha', 66);  
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Alessandro Barbaro
-    VALUES (500, 73.859468, 153.284157, TO_DATE('2018/12/25 11:00:00', 'YYYY/MM/DD HH24:MI:SS'),            --Amostra Sem Relatorio
+--12
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Alessandro Barbaro
+    VALUES (73.859468, 153.284157, TO_DATE('2018/12/25 11:00:00', 'YYYY/MM/DD HH24:MI:SS'),            --Amostra Sem Relatorio
             TO_DATE('2019/02/16 12:00:00', 'YYYY/MM/DD HH24:MI:SS'), '64003087', 'Porenquanto', 'Avenida Marechal Castelo Branco', 339);
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Pedro Serrote
-    VALUES (10, 89.9999, -170.763, TO_DATE('2020/12/25 11:00:00', 'YYYY/MM/DD HH24:MI:SS'),                 --Nao Retirado
+--13
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Pedro Serrote
+    VALUES (89.9999, -170.763, TO_DATE('2020/12/25 11:00:00', 'YYYY/MM/DD HH24:MI:SS'),                 --Nao Retirado
             NULL, '64006787', 'Parque Verde', 'Avenida Joao Fiusa', 689);
-
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Nao Notificado para Nenhum Pesquisador
-    VALUES (22, -30.45, 25.763, TO_DATE('2020/06/16 14:43:20', 'YYYY/MM/DD HH24:MI:SS'),                    
+--14
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Nao Notificado para Nenhum Pesquisador
+    VALUES (-30.45, 25.763, TO_DATE('2020/06/16 14:43:20', 'YYYY/MM/DD HH24:MI:SS'),                    
             NULL, '23905738', 'Jardim Celeste', 'Avenida Roedores', 784);
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
-    VALUES (490, 37.800, 14.763, TO_DATE('2020/11/10 14:43:20', 'YYYY/MM/DD HH24:MI:SS'),                   --Relatorio Pronto
+--15
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
+    VALUES (37.800, 14.763, TO_DATE('2020/11/10 14:43:20', 'YYYY/MM/DD HH24:MI:SS'),                   --Relatorio Pronto
             TO_DATE('2020/11/19 10:22:20', 'YYYY/MM/DD HH24:MI:SS'), '23450965', 'Novo Eldorado', 'Avenida Roedores', 65);
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
-    VALUES (935, 23.8230, 62.13643, TO_DATE('2020/07/07 17:34:34', 'YYYY/MM/DD HH24:MI:SS'),                   --Amostra sem Relatorio
+--16
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
+    VALUES (23.8230, 62.13643, TO_DATE('2020/07/07 17:34:34', 'YYYY/MM/DD HH24:MI:SS'),                   --Amostra sem Relatorio
             TO_DATE('2020/07/10 15:22:20', 'YYYY/MM/DD HH24:MI:SS'), '93740153', 'Parque Verde', 'Rua Esverdejante', 845);
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
-    VALUES (57, 65.834630, 123.134543, TO_DATE('2021/03/03 13:33:31', 'YYYY/MM/DD HH24:MI:SS'),                   --Relatorio Nao Finalizado
+--17
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Ze faiz tudo
+    VALUES (65.834630, 123.134543, TO_DATE('2021/03/03 13:33:31', 'YYYY/MM/DD HH24:MI:SS'),                   --Relatorio Nao Finalizado
             TO_DATE('2021/03/20 15:22:20', 'YYYY/MM/DD HH24:MI:SS'), '53709153', 'Cosmos', 'Rua Via Lactea', 42);
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Anakin
-    VALUES (86, 58.23445, 57.2034558, TO_DATE('2021/04/25 13:20:51', 'YYYY/MM/DD HH24:MI:SS'),            --Nao Retirado
+--18
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Anakin
+    VALUES (58.23445, 57.2034558, TO_DATE('2021/04/25 13:20:51', 'YYYY/MM/DD HH24:MI:SS'),            --Nao Retirado
             NULL, '93450275', 'Tabuleiro do Martins', 'Rua Fittipaldi', 05); 
 
-INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Yudi
-    VALUES (20, 60.740, 12.170, TO_DATE('2020/03/14 06:49:14', 'YYYY/MM/DD HH24:MI:SS'), 
+--19
+INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)  --Pesquisador: Yudi
+    VALUES (60.740, 12.170, TO_DATE('2020/03/14 06:49:14', 'YYYY/MM/DD HH24:MI:SS'), 
             NULL, '88812461', 'Novo Eldorado', 'Avenida Roedores', 04);
 
 
@@ -360,7 +378,7 @@ INSERT INTO Informa_Coco (Celular, Coco, DataHora)
     VALUES (15990009989, 5, TO_DATE('2020/05/17 03:39:59', 'YYYY/MM/DD HH24:MI:SS'));   --Bruno Mola
     
 INSERT INTO Informa_Coco (Celular, Coco, DataHora)
-    VALUES (18991287916, 666, TO_DATE('2021/11/20 10:50:14', 'YYYY/MM/DD HH24:MI:SS')); --Ze faiz tudo
+    VALUES (18991287916, 11, TO_DATE('2021/11/20 10:50:14', 'YYYY/MM/DD HH24:MI:SS')); --Ze faiz tudo
 
 
 
@@ -408,16 +426,16 @@ INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)            
     VALUES (4, '94520593443', '09182736450123', TO_DATE('2020/12/21 12:36:21', 'YYYY/MM/DD HH24:MI:SS'));       --Nao Retirado
 
 INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
-    VALUES (13, '12345678901', '11019876543210', TO_DATE('2021/09/25 15:27:22', 'YYYY/MM/DD HH24:MI:SS'));      --Retirado
+    VALUES (6, '12345678901', '11019876543210', TO_DATE('2021/09/25 15:27:22', 'YYYY/MM/DD HH24:MI:SS'));      --Retirado
 
 INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
-    VALUES (25, '12345678901', '09182736450123', TO_DATE('2021/11/22 10:23:55', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
+    VALUES (7, '12345678901', '09182736450123', TO_DATE('2021/11/22 10:23:55', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
 
 INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
-    VALUES (257, '12345678901', '67890123459999', TO_DATE('2021/11/20 12:52:41', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
+    VALUES (8, '12345678901', '67890123459999', TO_DATE('2021/11/20 12:52:41', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
 
 INSERT INTO Notificacao_Zelador (Coco , Zelador , Central, DataHora)                                        --Ze faiz tudo
-    VALUES (195, '12345678901', '90817263540123', TO_DATE('2021/08/10 18:10:12', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
+    VALUES (9, '12345678901', '90817263540123', TO_DATE('2021/08/10 18:10:12', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
 
 
 -- ~~~~ Inserção na tabela Matador de Pombo ~~~~
@@ -495,31 +513,31 @@ INSERT INTO Pesquisador (CPF, Nome, DataNasc, CEP, Rua, Numero, Formacao)
 
 -- ~~~~ Inserção na tabela Notificacao_Pesquisador ~~~~
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Anakin
-    VALUES ('81282720040', '90817263540123', 123, TO_DATE('2021/11/10 14:47:38', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Nao Finalizado
+    VALUES ('81282720040', '90817263540123', 10, TO_DATE('2021/11/10 14:47:38', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Nao Finalizado
  
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Joao
-    VALUES ('15454291030', '01234567891011', 666, TO_DATE('2021/12/01 23:00:24', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Finalizado
+    VALUES ('15454291030', '01234567891011', 11, TO_DATE('2021/12/01 23:00:24', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Finalizado
 
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Alessandro Barbaro
-    VALUES ('41716935008', '90817263540123', 500, TO_DATE('2019/01/01 00:01:01', 'YYYY/MM/DD HH24:MI:SS'));     --Sem Relatorio
+    VALUES ('41716935008', '90817263540123', 12, TO_DATE('2019/01/01 00:01:01', 'YYYY/MM/DD HH24:MI:SS'));     --Sem Relatorio
 
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Pedro Serrote
-    VALUES ('10970670095', '01234567891011', 10, TO_DATE('2021/03/02 22:32:22', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
+    VALUES ('10970670095', '01234567891011', 13, TO_DATE('2021/03/02 22:32:22', 'YYYY/MM/DD HH24:MI:SS'));      --Nao Retirado
     
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Ze faiz Tudo
-    VALUES ('12345678901', '90817263540123', 490, TO_DATE('2020/11/18 15:30:20', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Finalizado
+    VALUES ('12345678901', '90817263540123', 15, TO_DATE('2020/11/18 15:30:20', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio Finalizado
 
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Ze faiz Tudo
-    VALUES ('12345678901', '09182736450123', 935, TO_DATE('2020/07/08 12:12:12', 'YYYY/MM/DD HH24:MI:SS'));     --Sem Relatorio
+    VALUES ('12345678901', '09182736450123', 16, TO_DATE('2020/07/08 12:12:12', 'YYYY/MM/DD HH24:MI:SS'));     --Sem Relatorio
 
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Ze faiz Tudo
-    VALUES ('12345678901', '09182736450123', 57, TO_DATE('2021/03/13 11:11:11', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio nao Finalizado
+    VALUES ('12345678901', '09182736450123', 17, TO_DATE('2021/03/13 11:11:11', 'YYYY/MM/DD HH24:MI:SS'));     --Relatorio nao Finalizado
 
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Anakin
-    VALUES ('81282720040', '90817263540123', 86, TO_DATE('2021/04/26 13:20:51', 'YYYY/MM/DD HH24:MI:SS'));     --Nao Retirado
+    VALUES ('81282720040', '90817263540123', 18, TO_DATE('2021/04/26 13:20:51', 'YYYY/MM/DD HH24:MI:SS'));     --Nao Retirado
 
 INSERT INTO Notificacao_Pesquisador (Pesquisador, Central, Coco, DataHora)                                  --Yudi
-    VALUES ('04486497058', '90817263540123', 20, TO_DATE('2021/01/01 12:00:12', 'YYYY/MM/DD HH24:MI:SS')); 
+    VALUES ('04486497058', '90817263540123', 19, TO_DATE('2021/01/01 12:00:12', 'YYYY/MM/DD HH24:MI:SS')); 
 
 -- ~~~~ Inserção na tabela Laboratorio ~~~~
 INSERT INTO Laboratorio (CNPJ, CEP, Rua, Numero)
@@ -534,41 +552,41 @@ INSERT INTO Laboratorio (CNPJ, CEP, Rua, Numero)
 
 -- ~~~~ Inserção na tabela Amostra ~~~~
 INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
-    VALUES (123, '81282720040', TO_DATE('2021/11/20 10:45:38', 'YYYY/MM/DD HH24:MI:SS'),    --Anakin; Lab: Laranjeiras
+    VALUES (10, '81282720040', TO_DATE('2021/11/20 10:45:38', 'YYYY/MM/DD HH24:MI:SS'),    --Anakin; Lab: Laranjeiras
              122.100, 'Marrom','12345678901234');       
 
 INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
-    VALUES (666, '15454291030', TO_DATE('2021/12/15 14:22:22', 'YYYY/MM/DD HH24:MI:SS'),    --Joao; Lab: Palhano
+    VALUES (11, '15454291030', TO_DATE('2021/12/15 14:22:22', 'YYYY/MM/DD HH24:MI:SS'),    --Joao; Lab: Palhano
             666.666, 'Esbranquicado', '43210987654321');
 
 INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
-    VALUES (500, '41716935008', TO_DATE('2019/02/16 12:00:00', 'YYYY/MM/DD HH24:MI:SS'),    --Alessandro Barbaro; Lab: Palhano
+    VALUES (12, '41716935008', TO_DATE('2019/02/16 12:00:00', 'YYYY/MM/DD HH24:MI:SS'),    --Alessandro Barbaro; Lab: Palhano
             15.987, 'Esverdeado', '43210987654321');                                            --Sem Relatorio
 
 INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
-    VALUES (490, '12345678901', TO_DATE('2020/11/19 10:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Nova Pombopolis
+    VALUES (15, '12345678901', TO_DATE('2020/11/19 10:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Nova Pombopolis
             13.460, 'Esverdeado', '12345671234567');
 
 INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
-    VALUES (935, '12345678901', TO_DATE('2020/07/10 15:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Laranjeira
+    VALUES (16, '12345678901', TO_DATE('2020/07/10 15:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Laranjeira
             4.600, 'Esbranquicado', '12345678901234');
 
 INSERT INTO Amostra (Coco, Pesquisador, DataHoraColeta, Peso, Coloracao, Laboratorio)
-    VALUES (57, '12345678901', TO_DATE('2021/03/20 15:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Laranjeira
+    VALUES (17, '12345678901', TO_DATE('2021/03/20 15:22:20', 'YYYY/MM/DD HH24:MI:SS'),    --Ze faiz Tudo; Lab: Laranjeira
             4.600, 'Esbranquicado', '12345678901234');
 
 -- ~~~~ Inserção na tabela Relatorio ~~~~
 INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Anakin
-    VALUES  (123, NULL, 0);
+    VALUES  (10, NULL, 0);
 
 INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Joao Coluna
-    VALUES  (666, TO_DATE('2021/12/31 23:59:59', 'YYYY/MM/DD HH24:MI:SS'), 1);
+    VALUES  (11, TO_DATE('2021/12/31 23:59:59', 'YYYY/MM/DD HH24:MI:SS'), 1);
 
 INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Ze faiz Tudo
-    VALUES  (490, TO_DATE('2021/02/15 23:59:59', 'YYYY/MM/DD HH24:MI:SS'), 0);  
+    VALUES  (15, TO_DATE('2021/02/15 23:59:59', 'YYYY/MM/DD HH24:MI:SS'), 0);  
     
 INSERT INTO Relatorio (Amostra, DataHora, RiscoIminente)                        --Ze faiz Tudo
-    VALUES  (57, NULL, 0);
+    VALUES  (17, NULL, 0);
 
 
 -- ~~~~ Inserção na tabela Sensor Densidade de Pombo ~~~~

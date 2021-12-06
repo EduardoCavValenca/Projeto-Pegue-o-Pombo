@@ -244,7 +244,3 @@ SELECT * FROM TABLE(Historico_Matador('66666666666'));
     -- FROM Matador_Pombos MP join Notificacao_Matador NM
     -- on MP.CPF = NM.Matador AND MP.CPF = CPF_Pesquisa
     -- ORDER BY NM.DataHora DESC;
-
-
-
-SELECT NOME FROM MATADOR_POMBOS WHERE CPF = 12345678901

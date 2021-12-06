@@ -85,10 +85,6 @@ def Cadastra_coco(connection,cursor,CPF):
     Bairro = input("Bairro: ")
 
     try:
-        cursor.execute("SELECT MAX(ID) FROM COCO_POMBO") #Pega o proximo id disponive, deveria estar no banco
-        for result in cursor:
-            ID = int(result[0])+1
-
         cursor.execute("SELECT NUMERO FROM CELULAR WHERE INFORMANTE = "+str(CPF)) #Pega celular do informante
         for result in cursor:
             Celular = str(result[0])
@@ -100,14 +96,14 @@ def Cadastra_coco(connection,cursor,CPF):
 
     except cx_Oracle.DatabaseError as error:
 
-        print("Erro ao consultar tabela Coco_Pombo ou Celular: ", error)
+        print("Erro ao consultar tabela Celular: ", error)
         return
 
 
     #String para insercao do coco na tabela
-    insert_coco = "INSERT INTO Coco_Pombo (ID, Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)"
-    insert_coco += "VALUES ("+str(ID)+","+str(Latitude)+","+str(Longitude)+",TO_DATE(SYSDATE,'YYYY/MM/DD HH24:MI:SS'),NULL,"
-    insert_coco += str(CEP)+",'"+str(Bairro)+"',"+str(Rua)+","+str(Numero)+")"
+    insert_coco = "INSERT INTO Coco_Pombo (Latitude, Longitude, DataHora, DataHoraRetirado, CEP, Bairro, Rua, Numero)"
+    insert_coco += "VALUES ("+str(Latitude)+","+str(Longitude)+",TO_DATE(SYSDATE,'YYYY/MM/DD HH24:MI:SS'),NULL,"
+    insert_coco += str(CEP)+",'"+str(Bairro)+"','"+str(Rua)+"',"+str(Numero)+")"
 
 
     try:
@@ -140,6 +136,9 @@ def Cadastra_coco(connection,cursor,CPF):
         if error.message.find("UN_COCO_POMBO") != -1:
             print("\n Lat,Long e Horario iguais a de outro coco")
             return -1
+
+        print("Erro ao criar coco")
+        return -1
        
 
     except cx_Oracle.IntegrityError as e:

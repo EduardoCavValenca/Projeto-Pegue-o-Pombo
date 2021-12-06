@@ -492,7 +492,20 @@ BEGIN
     END IF;
 END;
 
+/
+-- ~~~ Criação do ID sintético para a tabela Coco_Pombo
+CREATE SEQUENCE ID_Coco START WITH 1;
 
+CREATE OR REPLACE TRIGGER TR_ID_Coco_Pombo 
+BEFORE INSERT ON Coco_Pombo
+FOR EACH ROW
+
+BEGIN
+  SELECT ID_Coco.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+END;
+/
 
 
 
